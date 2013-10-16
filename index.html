@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Grammar of (Interactive) Graphics</title>
+  <meta charset="utf-8">
+  <meta name="description" content="The Grammar of (Interactive) Graphics">
+  <meta name="author" content="Matthew Sigal (msigal@yorku.ca)">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/solarized_light.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="libraries/widgets/quiz/css/demo.css"></link>
+<link rel=stylesheet href="libraries/widgets/interactive/css/aceeditor.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/nv.d3.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/rNVD3.css"></link>
+<link rel=stylesheet href="./assets/css/custom.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  <script src="libraries/widgets/nvd3/js/jquery-1.8.2.min.js"></script>
+<script src="libraries/widgets/nvd3/js/d3.v3.min.js"></script>
+<script src="libraries/widgets/nvd3/js/nv.d3.min-new.js"></script>
+<script src="libraries/widgets/nvd3/js/fisheye.js"></script>
+<script src="libraries/widgets/highcharts/js/jquery-1.9.1.min.js"></script>
+<script src="libraries/widgets/highcharts/js/highcharts.js"></script>
+<script src="libraries/widgets/highcharts/js/highcharts-more.js"></script>
+
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>The Grammar of (Interactive) Graphics</h1>
+    <h2>October 21st, 2013</h2>
+    <p>Matthew Sigal (msigal@yorku.ca)<br/>York University</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Seminar Overview</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Understanding the Grammar of Graphics</li>
+<li>Terminology for Interactivity</li>
+<li>Simple Interactions</li>
+<li>Interactive Graphics for Pedagogical Purposes</li>
+<li>Interactive Graphics for Applied Research</li>
+<li>Leading Platforms and Packages</li>
+<li>Future Research</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue quote dark" id="slide-2" style="background:;">
+  <article data-timings="">
+    <p><q> The grammar of graphics takes us beyond a <qe>limited set</qe> of charts (words) to 
+an almost unlimited world of <qe>graphical forms</qe> (statements).</q></p>
+
+<p><aut>-Wilkinson, 2005, p. 1</aut></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>The Grammar of Graphics</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>Wilkinson (1999, 2005)</h3>
+
+<ul>
+<li>Chart typologies versus general graphics in graphical software
+
+<ul>
+<li>Software will necessarily offer <strong>fewer charts</strong> than people want</li>
+<li>Software will less deep <strong>structure</strong>, and so be inefficient</li>
+</ul></li>
+<li>Wilkinson&#39;s monograph aimed to replace chart typographies with an overarching language</li>
+<li>However, the <em>Grammar of Graphics</em> was primarily a theoretical treatise</li>
+<li>No direct implementation</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h3>Grammar of Graphics Fundamentals</h3>
+  </hgroup>
+  <article data-timings="">
+    <p>The grammar is broken up into three components:</p>
+
+<ol>
+<li><strong>Specification:</strong> Translating what we expect to happen into a formal language</li>
+<li><strong>Assembly:</strong> The coordination of the specified attributes.</li>
+<li><strong>Display:</strong> The actual rendering of the graphic onto a display system</li>
+</ol>
+
+<p>Assembly and Display are typically products of the hardware and software we use, and Wilkinson&#39;s
+primary emphasis is on Specification.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h3>The heart of the Grammar of Graphics</h3>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><strong>Algebra:</strong> Operations that combine variables and specify dimensions of graphs</li>
+<li><strong>Scales:</strong> Representing variables on measured dimensions</li>
+<li><strong>Statistics:</strong> Functions that allow graphs to change appearance and representation schemes</li>
+<li><strong>Geometry:</strong> Creation of geometric graphs from variables</li>
+<li><strong>Coordinates:</strong> Coordinate systems (from polar to complex map projections)</li>
+<li><strong>Aesthetics:</strong> Sensory attributes used to represent graphics</li>
+<li><strong>Facets and Guides:</strong> Allows for coordination between graphs and tables, and annotations</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Conceptual Workflow for Graphic Creation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br / ></p>
+
+<div style='text-align: center;'>
+    <img height='20-' style="border:3px solid black;" src='assets/img/GoG.svg' />
+</div>
+
+<p><br / >  </p>
+
+<p><strong>Important notes:</strong></p>
+
+<ul>
+<li>Difference between &quot;data&quot;, &quot;varset&quot;, &quot;graph&quot;, and &quot;graphic&quot;</li>
+<li>One way process (with iteration)</li>
+<li>Order is important!</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <article data-timings="">
+    <div style='text-align: center;'>
+    <img height='20-' style="border:3px solid black;" src='assets/img/GoG1.svg' />
+</div>
+
+<p><smbr></smbr></p>
+
+<p>The first step is to extract data into variables.</p>
+
+<ul>
+<li>The variable mapping function must return a single value in the range for every index.</li>
+<li>Data can be broadly defined: 
+
+<ul>
+<li>a relational database</li>
+<li>indexing a stream of words</li>
+<li>a picture</li>
+</ul></li>
+<li>Can be the product of bootstrapping, or even metadata.</li>
+<li>Can apply variable transformations (mathematical, statistical, multivariate)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <article data-timings="">
+    <div style='text-align: center;'>
+    <img height='20-' style="border:3px solid black;" src='assets/img/GoG2.svg' />
+</div>
+
+<p><smbr></smbr></p>
+
+<p>We then can apply various algebraic techniques to the varset, which will define the structure of our plot.</p>
+
+<ul>
+<li>Three primary operators: 
+
+<ul>
+<li>Cross: a two-dimensional scatterplot (e.g., city copulation for 2000 and 2010)</li>
+<li>Nest: facets data by group variable (e.g., data for USA and data for World)</li>
+<li>Blend: scatterplot with multiple overlays (e.g., data for 2000 and 2010)</li>
+</ul></li>
+<li>Output of this stage is a <code>varset</code></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <article data-timings="">
+    <div style='text-align: center;'>
+    <img height='20-' style="border:3px solid black;" src='assets/img/GoG3.svg' />
+</div>
+
+<p><smbr></smbr></p>
+
+<p>These are functions that are used to map varsets to dimensions (size, shape, and location).</p>
+
+<ul>
+<li>For example, with categorical data, we could do this based upon natural (alphabetic) order, relative frequency, or even length of string</li>
+<li>General scale types:
+
+<ul>
+<li>Categorical</li>
+<li>Linear</li>
+<li>Time</li>
+<li>&quot;One-Bend&quot; (e.g., logarthmic, power)</li>
+<li>&quot;Two-Bend&quot; (e.g., arcsine, logit/probit, probability)</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <article data-timings="">
+    <div style='text-align: center;'>
+    <img height='20-' style="border:3px solid black;" src='assets/img/GoG4.svg' />
+</div>
+
+<p><smbr></smbr></p>
+
+<p>Statistical operations can be employed to reduce the number of rows in the varset.</p>
+
+<ul>
+<li>These are methods that alter the position of geometric graps.</li>
+<li>Five primary methods:
+
+<ul>
+<li>Bin (rect/tri/hex/quantile/boundary/voronoi/dot/stem)</li>
+<li>Summary (count/proportion/sum/mean/median/mode/sd/se/range/leaf)</li>
+<li>Region (spread/confi)</li>
+<li>Smooth (linear/quadratic/cubic/log/spline/density)</li>
+<li>Link (join/sequence/mst/hull/tsp/complete/neighbor)</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <article data-timings="">
+    <div style='text-align: center;'>
+    <img height='20-' style="border:3px solid black;" src='assets/img/GoG5.svg' />
+</div>
+
+<p><smbr></smbr></p>
+
+<p>These functions create graph objects that can be represented by magnitudes in a space.</p>
+
+<ul>
+<li>These are not actually visible (as they don&#39;t have aesthetic attributes)!
+
+<ul>
+<li>Functions: point/line/area/interval/path/schema</li>
+<li>Partitions: polygon/contour</li>
+<li>Networks: edges</li>
+</ul></li>
+<li>Geometric objects can impose collision modifers to avoid overlap (e.g., jitter)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <article data-timings="">
+    <div style='text-align: center;'>
+    <img height='20-' style="border:3px solid black;" src='assets/img/GoG6.svg' />
+</div>
+
+<p><smbr></smbr></p>
+
+<p>Our next step is to choose and apply a coordinates system.</p>
+
+<ul>
+<li>These are sets that locate points in space.</li>
+<li>Planar transformations:
+
+<ul>
+<li>Isometry (reflect, rotate, translate) and Similarity (dilate)</li>
+<li>Affine (shear, stretch), Projective (project), and Conformal</li>
+</ul></li>
+<li>Projections on a plane:
+
+<ul>
+<li>Perspective projections; Triangular coordinates; Map projections</li>
+</ul></li>
+<li>3D and high dimensional coordinate systems</li>
+<li>For example, a pie chart is simply a stacked bar chart plotted in polar coordinates, with bar height mapped to the angle of the slice.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <article data-timings="">
+    <div style='text-align: center;'>
+    <img height='20-' style="border:3px solid black;" src='assets/img/GoG7.svg' />
+</div>
+
+<p><smbr></smbr></p>
+
+<table><thead>
+<tr>
+<th align="center">Form</th>
+<th align="center">Surface</th>
+<th align="center">Motion</th>
+<th align="center">Sound</th>
+<th align="center">Text</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">Position</td>
+<td align="center">Color</td>
+<td align="center">Direction</td>
+<td align="center">Tone</td>
+<td align="center">Label</td>
+</tr>
+<tr>
+<td align="center">Size</td>
+<td align="center">&nbsp;&nbsp; * Hue</td>
+<td align="center">Speed</td>
+<td align="center">Volume</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Shape</td>
+<td align="center">&nbsp;&nbsp; * Brightness</td>
+<td align="center">Acceleration</td>
+<td align="center">Rhythm</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">&nbsp;&nbsp; * Polygon</td>
+<td align="center">&nbsp;&nbsp; * Saturation</td>
+<td align="center"></td>
+<td align="center">Voice</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">&nbsp;&nbsp; * Glyph</td>
+<td align="center">Texure</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">&nbsp;&nbsp; * Image</td>
+<td align="center">&nbsp;&nbsp; * Pattern</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Rotation</td>
+<td align="center">&nbsp;&nbsp; * Granularity</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Resolution</td>
+<td align="center">&nbsp;&nbsp; * Orientation</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">Blur</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">Transparency</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+
+<p><span style="display: block; text-align: right; font-size: 70%;">(Wilksinson, 2005, p. 274)</span></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h3>Specification: The Building Blocks of Graphical Displays</h3>
+  </hgroup>
+  <article data-timings="">
+    <p>Any statistical graphic can be expressed in terms of six statements:</p>
+
+<ol>
+<li><strong>DATA:</strong> These expressions involve the creation of variables from datasets</li>
+<li><strong>TRANS:</strong> Apply variable transformations (for instance, rank)</li>
+<li><strong>SCALE:</strong> Apple scale transformations (for instance, log)</li>
+<li><strong>ELEMENT:</strong> Define graphs (e.g., points) and their aesthetic attributes (e.g., color)</li>
+<li><strong>COORD:</strong> Define the coordinate system (e.g., polar)</li>
+<li><strong>GUIDE:</strong> Define guides to aid interpretation (e.g. axes, legends, et cetera)</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h3>A conceptual example: A grouped scatterplot</h3>
+  </hgroup>
+  <article data-timings="">
+    <p><blockcode style="border:2px solid black;">
+DATA: sepallength = &quot;SepalLength&quot; <br />
+DATA: sepalwidth = &quot;SepalWidth&quot; <br />
+TRANS: sepallength = sepallength <br />
+TRANS: sepalwidth = sepalwidth <br />
+SCALE: linear(dim(1)) <br />
+SCALE: linear(dim(2)) <br />
+ELEMENT: point(position(sepallength*sepalwidth), color(species)) <br />
+COORD: rect(dim(1,2)) <br />
+GUIDE: axis(dim(1), label(&quot;Sepal Length&quot;)) <br />
+GUIDE: axis(dim(2), label(&quot;Sepal Width&quot;)) <br />
+</blockcode></p>
+
+<p>However, as most of these actions would be the default of a well-organized graphical system, only the Element statements are truly necessary.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Take home message:</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><smbr></smbr></p>
+
+<p><q2 style="border:2px solid black;"> 
+The Grammar of Graphics paradigm... means that, rather than having lots of different functions, each of which produces a different sort of plot,there is a small set of functions, each of which produces a different sort of plot <em>component</em>, and those components can be <em>combined</em> in many different ways to produce a huge variety of plots.
+<br />
+<span style="display: block; text-align: right;">-Murrell, 2011</span>
+</q2></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>The <code>gg</code> in <code>ggplot2</code>:</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>General Principals for ggplot2:</p>
+
+<ol>
+<li>Define the data you want to plot and create a plot template with <code>ggplot()</code></li>
+<li>Specify the aesthetics of the shapes that will be used to represet the data with <code>aes()</code></li>
+<li>Specify the graphical shapes (<code>geoms</code>) that will be used to view the data
+
+<ul>
+<li>Add them with the appropriate function; e.g. <code>geom_point()</code> or <code>geom_line()</code></li>
+</ul></li>
+<li>Call the object to view it</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Implementation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Components of a graph:</p>
+
+<ul>
+<li><code>Data</code>: What we want to see!</li>
+<li><code>Geoms</code>: Geometric objects that are drawn to represent the data (determine the type of plot )</li>
+<li><code>Stats</code>: Statistical transformations of the data (e.g., binning or averaging)</li>
+<li><code>Scales</code>: Controls mapping between data and aesthetics (variable or constant) </li>
+<li><code>Coord</code>: The coordinate system (provides axes and gridlines)</li>
+<li><code>Facets</code>: Allows us to break up the data into subsets</li>
+<li><code>Themes</code>: Relatively new <code>ggplot2</code> feature that allows for visual adjustments of a plot object </li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>From Wilkinson to Wickham:</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Building the grouped scatterplot:</p>
+
+<pre><code class="r">library(ggplot2)
+dat &lt;- iris
+plot &lt;- ggplot(data = dat, 
+               aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
+               geom_point() +
+               theme_bw()
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>The grouped scatterplot:</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/fig/groupscat2.png" title="plot of chunk groupscat2" alt="plot of chunk groupscat2" style="border:2px solid black;" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>Wilkinson or Wickham?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Is this a perfect implementaion of the Grammar of Graphics?</p>
+
+<ul class = "build incremental">
+<li>In the theoretical grammar, we have data, a mapping of data to graph, and the graph itself</li>
+<li>In <code>ggplot2</code>, we have to deal with:
+
+<ul>
+<li>Constructing the data into an interpretable format (a <code>data.frame</code> object)</li>
+<li>The R syntax for <code>ggplot2</code></li>
+<li>The underlying <code>ggplot2</code> object</li>
+<li>The generated graph, which is only constructed when <code>print()</code> or <code>ggsave()</code> is called</li>
+<li>The &quot;pipeline&quot; is less restrictive (e.g., we can apply aesthetics before coordinates)</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Wilkinson or Wickham?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Is this problematic?</p>
+
+<ul class = "build incremental">
+<li>No! </li>
+<li>The <code>ggplot2</code> maintains the core beliefs of the system
+
+<ul>
+<li>The object created has a hierarchical structure, even if it is not immediately apparent</li>
+<li>Look at <code>str(plot)</code></li>
+</ul></li>
+<li>The <code>+</code> operator allows us to make changes to the general plot object</li>
+<li>Additional geom calls add layers that allow us to build up a graphic</li>
+<li>While not as flexible as Wilkinson&#39;s theoretical framework, substantially more practical.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue quote dark" id="slide-23" style="background:;">
+  <article data-timings="">
+    <p><q style='text-align: center;'>Dynamic, interactive visualizations... <br /> <qe>empower people</qe> <br /> to explore the data for themselves.</q></p>
+
+<p><aut><br />-Murray, 2013, p. 2</aut></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue quote dark" id="slide-24" style="background:;">
+  <article data-timings="">
+    <p><q>Overview first, zoom and filter, then details-on-demand.</q></p>
+
+<p><aut style='text-align: right;'><br / >-Shneiderman, 1996, p. 337 <br / > (the &quot;Visual Information Seeking Mantra&quot;)</aut></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Why interaction?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>It is now easier than ever to provide online supplements for research</li>
+<li>Justifiability: The reader can &quot;see it for themselves&quot;</li>
+<li>Discoverability: Allows access to views and projections of the data that were previously hard to conceptualize</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>Terminology for Interactive Graphics</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><strong>Selection</strong> – the ability of users to dynamically subset the data</li>
+<li><strong>Probing</strong> – the generation of &quot;ToolTips&quot; for particular data points</li>
+<li><strong>Panning and Zooming</strong> – allows for the traversal of complex datasets </li>
+<li><strong>Drill Down</strong> - allows for the navigation of a categorical hierarchy</li>
+<li><strong>Slice</strong> – live faceting of the data</li>
+<li><strong>Modification</strong> - provide sandbox for users to explore</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>Simple Interactions</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The most basic interactions would allow the user to dynamically alter the parameters of a plot. This feature is already built into RStudio with the <code>manipulate</code> package. </p>
+
+<p>For example, the following code allows users to dynamically alter:</p>
+
+<ul>
+<li>The x-axis limits</li>
+<li>Chart type</li>
+<li>Axes and axes labelling</li>
+</ul>
+
+<pre><code class="r">manipulate(plot(iris$Sepal.Length, iris$Sepal.Width, 
+                xlim = c(x.min, x.max), type = type, axes = axes, ann = label), 
+           x.min = slider(0,10, initial = 4), 
+           x.max = slider(0,10, initial = 8),
+           type = picker(&quot;points&quot; = &quot;p&quot;, &quot;line&quot; = &quot;l&quot;, &quot;none&quot; = &quot;n&quot;, 
+                         initial = &quot;points&quot;),
+           axes = checkbox(TRUE, &quot;Draw Axes&quot;),
+           label = checkbox(TRUE, &quot;Draw Axes Labels&quot;))
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
+  <hgroup>
+    <h3>RStudio&#39;s <code>manipulate</code> package</h3>
+  </hgroup>
+  <article data-timings="">
+    <div style='text-align: center;'>
+    <img height='20-' style="border:3px solid black;" src='assets/img/man.png' />
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-29" style="background:;">
+  <hgroup>
+    <h3>RStudio&#39;s <code>manipulate</code> package</h3>
+  </hgroup>
+  <article data-timings="">
+    <p>While easy to use, unfortauntely, <code>manipulate</code> has some draw-backs:</p>
+
+<ul>
+<li>It is not designed for presentation, and is only available from within the GUI</li>
+<li>Interactive graphics cannot be distributed outside of an R code snippet</li>
+<li>Limited number of parameters are manipulatable</li>
+<li>Limited number of choices in terms of how to manipulate parameters</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-30" style="background:;">
+  <hgroup>
+    <h3><code>clickme</code> Scatterplot</h3>
+  </hgroup>
+  <article data-timings="">
+    <p>A more interesting example comes courtesy of Nacho Cabellero&#39;s <code>clickme</code> package.  </p>
+
+<p>The goals of this package are to:</p>
+
+<ol>
+<li>Create easily sharable dynamic plots</li>
+<li>Allow for different types of plots via templates (presently only points are supported)</li>
+<li>Incorporate optional parameters to change how the visualization behaves</li>
+</ol>
+
+<p>For example, here are the results of conducting multidimensional scaling on the <code>iris</code> dataset:</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-31" style="background:;">
+  <article data-timings="">
+    <iframe src="http://www.dfconsulting.org/QMforum/temp-Points.html" width="90%" height="90%"
+  style="border:3px solid black;">Loading</iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-32" style="background:;">
+  <hgroup>
+    <h2>Interactive Plots for Pedagogy</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Interactivity can also be harnessed for pedagogical purposes.  For instance, while teaching introductory statistics, we might want to visually demonstrate how skewness and kurtosis affect a distribution.</p>
+
+<p>We can do this live via the <code>shiny</code> package, which allows us to create a web application framework for R with &quot;reactive bindings&quot;.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-33" style="background:;">
+  <article data-timings="">
+    <div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
+<iframe src="http://glimmer.rstudio.com/msigal/skewkurt/">Loading</iframe>
+</div>
+
+<p><br /></p>
+
+<p><span style="display: block; text-align: center; font-size: 70%;">(This is an approximation based upon the sinh-arcsinh transformation; Jones &amp; Pewsey, 2009)</span></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-34" style="background:;">
+  <hgroup>
+    <h2>Interactive Chart with Shiny Controls</h2>
+  </hgroup>
+  <article data-timings="">
+    <div class="row-fluid">
+  <div class="span4">
+    <form class="well">
+      <label class="control-label" for="sex">Choose Sex</label>
+      <select id="sex">
+        <option value="Male" selected="selected">Male</option>
+        <option value="Female">Female</option>
+      </select>
+      <label class="control-label" for="type">Choose Type</label>
+      <select id="type">
+        <option value="multiBarChart" selected="selected">multiBarChart</option>
+        <option value="multiBarHorizontalChart">multiBarHorizontalChart</option>
+      </select>
+    </form>
+  </div>
+  <div class="span8">
+    <div id="nvd3plot" class="shiny-html-output nvd3 rChart"></div>
+  </div>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-35" style="background:;">
+  <hgroup>
+    <h2>Interactive Console</h2>
+  </hgroup>
+  <article data-timings="">
+     
+<div class='row-fluid'>
+  <div class='span5'>
+    <form id="knitForm35" data-cell="35">
+      <p><textarea class='interactive' id='interactive35' data-cell='35' data-results='asis' style='display:none'>require(rCharts)
+a &lt;- Highcharts$new()
+a$chart(type = &quot;spline&quot;)
+a$series(data = c(1, 3, 2, 4, 5, 4, 6, 2, 3, 5, NA), dashStyle = &quot;longdash&quot;)
+a$series(data = c(NA, 4, 1, 3, 4, 2, 9, 1, 2, 3, 4), dashStyle = &quot;shortdot&quot;)
+a$legend(symbolWidth = 80)
+a$print(&#39;chart3&#39;)</textarea></p>
+
+      <div id='aceeditor35' style="height:px;"></div>
+      <div class='interactive btn-toolbar pull-left'>
+        <div class='btn-group'>
+          <a class='btn btn-small action-button' id='runCode35' data-action='runCode'
+            data-cell='35' rel='tooltip' data-title='Run Code'>
+            <i class='icon-play'></i>
+          </a>
+          <a class='btn btn-small iBtn' id='testCode35' data-action='testCode'
+             data-cell='35' rel='tooltip' data-title='Test Code'>
+            <i class='icon-check'></i>
+          </a>
+          <a class='btn btn-small iBtn' id='clearResult35' data-action='clearResult'
+             data-cell='35' rel='tooltip' data-title='Clear Output'>
+            <i class="icon-remove"></i>
+          </a>
+          <a class='btn  btn-small iBtn' id='getHint35' rel='tooltip' 
+            data-title="Get Hint" data-action='getHint'
+            data-cell='35' data-hint="">
+            <i class="icon-bookmark"></i>
+          </a>
+        </div>
+      </div>    </form>
+  </div>
+  <div class='span7'>
+    <div id="knitResult35" class='shiny-html-output'></div>
+  </div>
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-36" style="background:;">
+  <hgroup>
+    <h2>Interactive Designs for Research</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-37" style="background:;">
+  <hgroup>
+    <h2>Interactive Console</h2>
+  </hgroup>
+  <article data-timings="">
+     
+<div class='row-fluid'>
+  <div class='span5'>
+    <form id="knitForm37" data-cell="37">
+      <p><textarea class='interactive' id='interactive37' data-cell='37' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
+M1 &lt;- gvisMotionChart(Fruits, idvar = &#39;Fruit&#39;, timevar = &#39;Year&#39;)
+print(M1, tag = &#39;chart&#39;)</textarea></p>
+
+      <div id='aceeditor37' style="height:px;"></div>
+      <div class='interactive btn-toolbar pull-left'>
+        <div class='btn-group'>
+          <a class='btn btn-small action-button' id='runCode37' data-action='runCode'
+            data-cell='37' rel='tooltip' data-title='Run Code'>
+            <i class='icon-play'></i>
+          </a>
+          <a class='btn btn-small iBtn' id='testCode37' data-action='testCode'
+             data-cell='37' rel='tooltip' data-title='Test Code'>
+            <i class='icon-check'></i>
+          </a>
+          <a class='btn btn-small iBtn' id='clearResult37' data-action='clearResult'
+             data-cell='37' rel='tooltip' data-title='Clear Output'>
+            <i class="icon-remove"></i>
+          </a>
+          <a class='btn  btn-small iBtn' id='getHint37' rel='tooltip' 
+            data-title="Get Hint" data-action='getHint'
+            data-cell='37' data-hint="">
+            <i class="icon-bookmark"></i>
+          </a>
+        </div>
+      </div>    </form>
+  </div>
+  <div class='span7'>
+    <div id="knitResult37" class='shiny-html-output'></div>
+  </div>
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-38" style="background:;">
+  <hgroup>
+    <h3>Interactive Tableplot</h3>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-39" style="background:;">
+  <hgroup>
+    <h3>Interactive Mosaic Plot</h3>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-40" style="background:;">
+  <article data-timings="">
+    <ul>
+<li>Both built with <code>shiny</code></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-41" style="background:;">
+  <hgroup>
+    <h3>D3</h3>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Popular for constructing interactive networks and maps</li>
+<li>Combination of HTML, JavaScript, CSS, and D3</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-42" style="background:;">
+  <hgroup>
+    <h3>Other JavaScript libraries:</h3>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Processing</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-43" style="background:;">
+  <hgroup>
+    <h3>Leveraging JavaScript libraries within R</h3>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>rCharts</li>
+<li>example</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-44" style="background:;">
+  <hgroup>
+    <h2>Platform Comparison</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>R Packages</strong></p>
+
+<ul>
+<li><code>animint</code> has a similar feature set to <code>clickme</code>, but targeted specifically for ggplot2 graphics.
+
+<ul>
+<li><code>require(devtools)</code> and then <code>install_github(&quot;animint&quot;,&quot;tdhock&quot;)</code></li>
+</ul></li>
+<li>Pros</li>
+<li>Cons</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-45" style="background:;">
+  <hgroup>
+    <h2>Future Research</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Build model specific but data generic applications available for distribution</li>
+<li>Encourage researchers to provide online resources for readers to interact with</li>
+<li>In particular, plan to code specific applications to aid in outlier detection
+and influence diagnostics for structucal equation models.</li>
+</ul>
+
+<!---
+&vcenter
+<img style="height:600px; border:3px solid black;" src="assets/img/Anscombe.png"/>
+
+## Other Examples 
+&vcenter
+<img style="height:600px; border:3px solid black;" src="assets/img/bargraph.png"/>
+-->
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-46" style="background:;">
+  <hgroup>
+    <h2>Contact</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Matthew J. Sigal, MA
+
+<ul>
+<li><a href="mailto:matthewsigal@gmail.com">matthewsigal@gmail.com</a></li>
+<li><a href="mailto:msigal@yorku.ca">msigal@yorku.ca</a></li>
+<li>Department of Psychology</li>
+<li>262 Behavioural Science Building</li>
+<li>York University, 4700 Keele St.</li>
+<li>Toronto, ON, Canada M3J 1P3</li>
+<li>(416) 736-2100 x66163</li>
+</ul></li>
+<li>My websites: 
+
+<ul>
+<li><a href="http://www.matthewsigal.com">http://www.matthewsigal.com</a></li>
+<li><a href="http://www.dfconsulting.org">http://www.dfconsulting.org</a></li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-47" style="background:;">
+  <hgroup>
+    <h2>Packages used in this presentation:</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Hadley Wickham&#39;s <code>ggplot2</code></li>
+<li>Nacho Caballero&#39;s <code>clickme</code>
+
+<ul>
+<li><code>require(devtools); install_github(&quot;clickme&quot;, &quot;nachocab&quot;)</code></li>
+</ul></li>
+<li>RStudio&#39;s <code>manipulate</code> and <code>shiny</code></li>
+<li><p>Ramnath Vaidyanathan&#39;s <code>rCharts</code></p>
+
+<ul>
+<li><code>require(devtools); install_github(&#39;rCharts&#39;, &#39;ramnathv&#39;)</code></li>
+</ul></li>
+<li><p>Slides made with Ramnath Vaidyanathan&#39;s <code>slidify</code> package</p>
+
+<ul>
+<li>`require(devtools); install_github(&#39;slidify&#39;, &#39;ramnathv&#39;); </li>
+<li><code>require(devtools); install_github(&#39;slidifyLibraries&#39;, &#39;ramnathv&#39;)</code></li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-48" style="background:;">
+  <hgroup>
+    <h2>Selected References</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Shneiderman, B. (1996). The eyes have it. <em>Proc. IEEE Visual Languages</em>, pp. 336-343.</li>
+<li>Jones, M. C. and Pewsey A. (2009). Sinh-arcsinh distributions. <strong>Biometrika</strong>, 96, pp. 761–780.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Seminar Overview'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title=''>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='The Grammar of Graphics'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Grammar of Graphics Fundamentals'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='The heart of the Grammar of Graphics'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Conceptual Workflow for Graphic Creation'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title=''>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title=''>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title=''>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title=''>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title=''>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title=''>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title=''>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Specification: The Building Blocks of Graphical Displays'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='A conceptual example: A grouped scatterplot'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Take home message:'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='The <code>gg</code> in <code>ggplot2</code>:'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Implementation'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='From Wilkinson to Wickham:'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='The grouped scatterplot:'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='Wilkinson or Wickham?'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Wilkinson or Wickham?'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title=''>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title=''>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='Why interaction?'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Terminology for Interactive Graphics'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='Simple Interactions'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='RStudio&#39;s <code>manipulate</code> package'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='RStudio&#39;s <code>manipulate</code> package'>
+         29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='<code>clickme</code> Scatterplot'>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title=''>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='Interactive Plots for Pedagogy'>
+         32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title=''>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='Interactive Chart with Shiny Controls'>
+         34
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title='Interactive Console'>
+         35
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='Interactive Designs for Research'>
+         36
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=37 title='Interactive Console'>
+         37
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=38 title='Interactive Tableplot'>
+         38
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=39 title='Interactive Mosaic Plot'>
+         39
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title=''>
+         40
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=41 title='D3'>
+         41
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=42 title='Other JavaScript libraries:'>
+         42
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=43 title='Leveraging JavaScript libraries within R'>
+         43
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title='Platform Comparison'>
+         44
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=45 title='Future Research'>
+         45
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=46 title='Contact'>
+         46
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=47 title='Packages used in this presentation:'>
+         47
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=48 title='Selected References'>
+         48
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+<script src="libraries/widgets/quiz/js/jquery.quiz.js"></script>
+<script src="libraries/widgets/quiz/js/mustache.min.js"></script>
+<script src="libraries/widgets/quiz/js/quiz-app.js"></script>
+<script src="libraries/widgets/interactive/js/ace/js/ace.js"></script>
+<script src="libraries/widgets/interactive/js/interactive.js"></script>
+
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<script>  
+  $(function (){ 
+    $("#example").popover(); 
+    $("[rel='tooltip']").tooltip(); 
+  });  
+  </script>  
+  
+  <script src="shared/shiny.js" type="text/javascript"></script>
+  <script src="shared/slider/js/jquery.slider.min.js"></script>
+  <script src="shared/bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="shared/slider/css/jquery.slider.min.css"></link>
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

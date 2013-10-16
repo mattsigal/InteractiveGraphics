@@ -1,0 +1,42 @@
+.axis line, .axis path{
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+    stroke-width: 2;
+}
+
+body{
+    margin: 0;
+}
+
+.axis text{
+    font-size: 18px;
+}
+
+.label.y, .label.x {
+    font-size: 24px;
+}
+
+.title{
+    font-size: 30px;
+}
+
+.subtitle{
+    font-size: 20px;
+}
+
+.hide {
+    display: none;
+}
+
+.hide.color_group_key {
+    display: inline;
+}
+.hide.color_group_key text{
+    opacity: 0.5;
+}
+
+iframe {
+     border: 0;
+}
+

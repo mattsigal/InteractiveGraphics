@@ -1,0 +1,69 @@
+.dark q {
+    color: white;
+    line-height:1.05;
+    text-align:justify;
+}
+
+.dark qe {
+	color: FireBrick;
+	line-height:1.05;
+	text-align:justify;
+	font-weight:bold;
+}
+
+.dark aut {
+    color: white;
+    text-size: small;
+    float: right;
+}
+
+slides > slide:not(.nobackground):after {
+  content: ""
+}
+
+<style>
+em {
+  font-style: italic
+}
+</style>
+
+<style>
+strong {
+  font-weight: bold;
+}
+</style>
+
+IMG.displayed {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center
+}
+
+blockcode {
+  display: inline-block;
+  border-radius: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 15px;
+  font-size: 100%;
+  font-family: "Source Code Pro", monospace;
+  color: darkred;
+  text-align:left;
+  background-color: LightGray;
+}
+
+q2 {
+  display: inline-block;
+  font-size: 120%;
+  line-height: 56px;
+  margin-left: 75px;
+  margin-top: 50px;
+  margin-right: 75px;
+  border-radius: 15px;
+  padding: 22px;  
+}
+
+smbr {
+	line-heigh: 25%;
+}
