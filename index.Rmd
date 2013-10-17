@@ -8,11 +8,13 @@ highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : solarized_light      # {googlecode}
 widgets     : [mathjax, bootstrap, quiz, shiny, interactive]
 mode        : selfcontained # {standalone, draft}
+ext_widgets : {rCharts: [libraries/nvd3, libraries/highcharts]}
 
 ---
 
 ```{r echo = F, message = F, cache = F}
 opts_chunk$set(results = 'asis', comment = NA, message = F, tidy = F)
+suppressPackageStartupMessages(library(googleVis))
 ```
 
 ## Seminar Overview
@@ -20,10 +22,9 @@ opts_chunk$set(results = 'asis', comment = NA, message = F, tidy = F)
 1. Understanding the Grammar of Graphics
 2. Terminology for Interactivity
 3. Simple Interactions
-4. Interactive Graphics for Pedagogical Purposes
-5. Interactive Graphics for Applied Research
-6. Leading Platforms and Packages
-7. Future Research
+4. Interactive Graphic Examples
+5. Leading Platforms and Packages
+6. Future Research
 
 --- .segue .quote .dark
 
@@ -456,6 +457,22 @@ We can do this live via the `shiny` package, which allows us to create a web app
 
 <span style="display: block; text-align: center; font-size: 90%;">(This is an approximation based upon the sinh-arcsinh transformation; Jones & Pewsey, 2009)</span>
 
+--- &interactive
+## Interactive Console with googleVis
+
+```{r bubble, opts.label = 'interactive', results = 'asis'}
+Bubble <- gvisBubbleChart(Fruits, 
+                          idvar="Fruit", 
+                          xvar="Sales",
+                          yvar="Expenses", 
+                          colorvar="Year", 
+                          sizevar="Profit", 
+                          options=list(hAxis='{minValue:75, maxValue:125}'))
+print(Bubble, tag = 'chart')
+```
+
+<span style="display: block; text-align: center; font-size: 30%;">M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')</span>
+
 ---
 
 ### Interactive Tableplot
@@ -477,25 +494,17 @@ D3
 
 ---
 
-## Leveraging JavaScript libraries via rCharts
+### Leveraging JS libraries via rCharts: Highcharts
 
-```{r echo=FALSE, fig.align='center', cache=FALSE}
-library(rCharts)
-df <- as.data.frame(matrix(c(18, 3, 1, 1, 84, 4, 7, 3, 87, 12, 9, 7),ncol=4,nrow=3,byrow=TRUE)) 
-colnames(df) <-c("Non-Smoker", "Occasional Smoker", "Regular Smoker", "Heavy Smoker")
-rownames(df) <-  c("None", "Some", "Freq")
+<div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
+<iframe src="http://rpubs.com/mattsigal/highchart">Loading</iframe>
+</div>
 
-a <- rCharts:::Highcharts$new()
-a$params$width <- 900
-a$params$heigh <- 700
-a$chart(type = "column")
-a$title(text = "Smoking and Exercise")
-a$yAxis(title = "Count")
-a$plotOptions(column = list(stacking = "normal"))
-a$xAxis(title ="Category", categories = c("No Exercising", "Some Exercising", "Frequent Exercising"))
-a$data(df);
-a$print('hchart1', include_assets = TRUE, cdn = FALSE)
-```
+---
+
+<div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
+<iframe src="http://glimmer.rstudio.com/msigal/shinyrChart/">Loading</iframe>
+</div>
 
 ---
 

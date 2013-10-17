@@ -8,6 +8,7 @@ highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : solarized_light      # {googlecode}
 widgets     : [mathjax, bootstrap, quiz, shiny, interactive]
 mode        : selfcontained # {standalone, draft}
+ext_widgets : {rCharts: [libraries/nvd3, libraries/highcharts]}
 
 ---
 
@@ -19,10 +20,9 @@ mode        : selfcontained # {standalone, draft}
 1. Understanding the Grammar of Graphics
 2. Terminology for Interactivity
 3. Simple Interactions
-4. Interactive Graphics for Pedagogical Purposes
-5. Interactive Graphics for Applied Research
-6. Leading Platforms and Packages
-7. Future Research
+4. Interactive Graphic Examples
+5. Leading Platforms and Packages
+6. Future Research
 
 --- .segue .quote .dark
 
@@ -444,6 +444,21 @@ We can do this live via the `shiny` package, which allows us to create a web app
 
 <span style="display: block; text-align: center; font-size: 90%;">(This is an approximation based upon the sinh-arcsinh transformation; Jones & Pewsey, 2009)</span>
 
+--- &interactive
+## Interactive Console with googleVis
+
+<textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>Bubble <- gvisBubbleChart(Fruits, 
+                          idvar="Fruit", 
+                          xvar="Sales",
+                          yvar="Expenses", 
+                          colorvar="Year", 
+                          sizevar="Profit", 
+                          options=list(hAxis='{minValue:75, maxValue:125}'))
+print(Bubble, tag = 'chart')</textarea>
+
+
+M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
+
 ---
 
 ### Interactive Tableplot
@@ -465,91 +480,17 @@ D3
 
 ---
 
-## Leveraging JavaScript libraries via rCharts
+### Leveraging JS libraries via rCharts: Highcharts
 
-<script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/jquery-1.9.1.min.js></script>
-<script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/highcharts.js></script>
-<script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/highcharts-more.js></script>
-<script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/exporting.js></script>
-<div id = 'hchart1' class = 'rChart highcharts'></div>
-<script type='text/javascript'>
-    (function($){
-        $(function () {
-            var chart = new Highcharts.Chart({
- "dom": "hchart1",
-"width":    900,
-"height":    400,
-"credits": {
- "href": null,
-"text": null 
-},
-"exporting": {
- "enabled": false 
-},
-"title": {
- "text": "Smoking and Exercise" 
-},
-"yAxis": [
- {
- "title": "Count" 
-} 
-],
-"heigh":    700,
-"chart": {
- "type": "column",
-"renderTo": "hchart1" 
-},
-"plotOptions": {
- "column": {
- "stacking": "normal" 
-} 
-},
-"xAxis": [
- {
- "title": "Category",
-"categories": [ "No Exercising", "Some Exercising", "Frequent Exercising" ] 
-} 
-],
-"series": [
- {
- "name": "Non-Smoker",
-"data": [
-     18,
-    84,
-    87 
-] 
-},
-{
- "name": "Occasional Smoker",
-"data": [
-      3,
-     4,
-    12 
-] 
-},
-{
- "name": "Regular Smoker",
-"data": [
-      1,
-     7,
-     9 
-] 
-},
-{
- "name": "Heavy Smoker",
-"data": [
-      1,
-     3,
-     7 
-] 
-} 
-],
-"id": "hchart1" 
-});
-        });
-    })(jQuery);
-</script>
+<div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
+<iframe src="http://rpubs.com/mattsigal/highchart">Loading</iframe>
+</div>
 
+---
+
+<div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
+<iframe src="http://glimmer.rstudio.com/msigal/shinyrChart/">Loading</iframe>
+</div>
 
 ---
 

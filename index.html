@@ -16,6 +16,8 @@
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
 <link rel=stylesheet href="libraries/widgets/quiz/css/demo.css"></link>
 <link rel=stylesheet href="libraries/widgets/interactive/css/aceeditor.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/nv.d3.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/rNVD3.css"></link>
 <link rel=stylesheet href="./assets/css/custom.css"></link>
 <link rel=stylesheet href="./assets/css/ribbons.css"></link>
 
@@ -27,7 +29,14 @@
     src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
   </script>
   
-  
+  <script src="libraries/widgets/nvd3/js/jquery-1.8.2.min.js"></script>
+<script src="libraries/widgets/nvd3/js/d3.v3.min.js"></script>
+<script src="libraries/widgets/nvd3/js/nv.d3.min-new.js"></script>
+<script src="libraries/widgets/nvd3/js/fisheye.js"></script>
+<script src="libraries/widgets/highcharts/js/jquery-1.9.1.min.js"></script>
+<script src="libraries/widgets/highcharts/js/highcharts.js"></script>
+<script src="libraries/widgets/highcharts/js/highcharts-more.js"></script>
+
 
 </head>
 <body style="opacity: 0">
@@ -54,8 +63,7 @@
 <li>Understanding the Grammar of Graphics</li>
 <li>Terminology for Interactivity</li>
 <li>Simple Interactions</li>
-<li>Interactive Graphics for Pedagogical Purposes</li>
-<li>Interactive Graphics for Applied Research</li>
+<li>Interactive Graphic Examples</li>
 <li>Leading Platforms and Packages</li>
 <li>Future Research</li>
 </ol>
@@ -773,6 +781,57 @@ plot &lt;- ggplot(data = dat,
 
 <slide class="" id="slide-34" style="background:;">
   <hgroup>
+    <h2>Interactive Console with googleVis</h2>
+  </hgroup>
+  <article data-timings="">
+     
+<div class='row-fluid'>
+  <div class='span5'>
+    <form id="knitForm34" data-cell="34">
+      <p><textarea class='interactive' id='interactive34' data-cell='34' data-results='asis' style='display:none'>Bubble &lt;- gvisBubbleChart(Fruits, 
+                          idvar=&quot;Fruit&quot;, 
+                          xvar=&quot;Sales&quot;,
+                          yvar=&quot;Expenses&quot;, 
+                          colorvar=&quot;Year&quot;, 
+                          sizevar=&quot;Profit&quot;, 
+                          options=list(hAxis=&#39;{minValue:75, maxValue:125}&#39;))
+print(Bubble, tag = &#39;chart&#39;)</textarea></p>
+
+<p>M1 &lt;- gvisMotionChart(Fruits, idvar = &#39;Fruit&#39;, timevar = &#39;Year&#39;); print(M1, tag = &#39;chart&#39;)</p>
+
+      <div id='aceeditor34' style="height:px;"></div>
+      <div class='interactive btn-toolbar pull-left'>
+        <div class='btn-group'>
+          <a class='btn btn-small action-button' id='runCode34' data-action='runCode'
+            data-cell='34' rel='tooltip' data-title='Run Code'>
+            <i class='icon-play'></i>
+          </a>
+          <a class='btn btn-small iBtn' id='testCode34' data-action='testCode'
+             data-cell='34' rel='tooltip' data-title='Test Code'>
+            <i class='icon-check'></i>
+          </a>
+          <a class='btn btn-small iBtn' id='clearResult34' data-action='clearResult'
+             data-cell='34' rel='tooltip' data-title='Clear Output'>
+            <i class="icon-remove"></i>
+          </a>
+          <a class='btn  btn-small iBtn' id='getHint34' rel='tooltip' 
+            data-title="Get Hint" data-action='getHint'
+            data-cell='34' data-hint="">
+            <i class="icon-bookmark"></i>
+          </a>
+        </div>
+      </div>    </form>
+  </div>
+  <div class='span7'>
+    <div id="knitResult34" class='shiny-html-output'></div>
+  </div>
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-35" style="background:;">
+  <hgroup>
     <h3>Interactive Tableplot</h3>
   </hgroup>
   <article data-timings="">
@@ -781,7 +840,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-35" style="background:;">
+<slide class="" id="slide-36" style="background:;">
   <hgroup>
     <h2>Other Visualization Librairies</h2>
   </hgroup>
@@ -797,7 +856,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-36" style="background:;">
+<slide class="" id="slide-37" style="background:;">
   <hgroup>
     <h3>Other JavaScript libraries:</h3>
   </hgroup>
@@ -810,104 +869,30 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-37" style="background:;">
+<slide class="" id="slide-38" style="background:;">
   <hgroup>
-    <h2>Leveraging JavaScript libraries via rCharts</h2>
+    <h3>Leveraging JS libraries via rCharts: Highcharts</h3>
   </hgroup>
   <article data-timings="">
-    <script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/jquery-1.9.1.min.js></script>
-
-<script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/highcharts.js></script>
-
-<script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/highcharts-more.js></script>
-
-<script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/exporting.js></script>
-
-<div id = 'hchart1' class = 'rChart highcharts'></div>
-
-<script type='text/javascript'>
-    (function($){
-        $(function () {
-            var chart = new Highcharts.Chart({
- "dom": "hchart1",
-"width":    900,
-"height":    400,
-"credits": {
- "href": null,
-"text": null 
-},
-"exporting": {
- "enabled": false 
-},
-"title": {
- "text": "Smoking and Exercise" 
-},
-"yAxis": [
- {
- "title": "Count" 
-} 
-],
-"heigh":    700,
-"chart": {
- "type": "column",
-"renderTo": "hchart1" 
-},
-"plotOptions": {
- "column": {
- "stacking": "normal" 
-} 
-},
-"xAxis": [
- {
- "title": "Category",
-"categories": [ "No Exercising", "Some Exercising", "Frequent Exercising" ] 
-} 
-],
-"series": [
- {
- "name": "Non-Smoker",
-"data": [
-     18,
-    84,
-    87 
-] 
-},
-{
- "name": "Occasional Smoker",
-"data": [
-      3,
-     4,
-    12 
-] 
-},
-{
- "name": "Regular Smoker",
-"data": [
-      1,
-     7,
-     9 
-] 
-},
-{
- "name": "Heavy Smoker",
-"data": [
-      1,
-     3,
-     7 
-] 
-} 
-],
-"id": "hchart1" 
-});
-        });
-    })(jQuery);
-</script>
+    <div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
+<iframe src="http://rpubs.com/mattsigal/highchart">Loading</iframe>
+</div>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-38" style="background:;">
+<slide class="" id="slide-39" style="background:;">
+  <article data-timings="">
+    <div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
+<iframe src="http://glimmer.rstudio.com/msigal/shinyrChart/">Loading</iframe>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-40" style="background:;">
   <hgroup>
     <h2>Platform Comparison</h2>
   </hgroup>
@@ -928,7 +913,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-39" style="background:;">
+<slide class="" id="slide-41" style="background:;">
   <hgroup>
     <h2>Future Research</h2>
   </hgroup>
@@ -944,7 +929,7 @@ and influence diagnostics for structucal equation models.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-40" style="background:;">
+<slide class="" id="slide-42" style="background:;">
   <hgroup>
     <h2>Contact</h2>
   </hgroup>
@@ -973,7 +958,7 @@ and influence diagnostics for structucal equation models.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-41" style="background:;">
+<slide class="" id="slide-43" style="background:;">
   <hgroup>
     <h2>Packages used in this presentation:</h2>
   </hgroup>
@@ -1003,7 +988,7 @@ and influence diagnostics for structucal equation models.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-42" style="background:;">
+<slide class="" id="slide-44" style="background:;">
   <hgroup>
     <h2>Selected References</h2>
   </hgroup>
@@ -1221,56 +1206,68 @@ and influence diagnostics for structucal equation models.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='Interactive Tableplot'>
+        data-slide=34 title='Interactive Console with googleVis'>
          34
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='Other Visualization Librairies'>
+        data-slide=35 title='Interactive Tableplot'>
          35
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=36 title='Other JavaScript libraries:'>
+        data-slide=36 title='Other Visualization Librairies'>
          36
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='Leveraging JavaScript libraries via rCharts'>
+        data-slide=37 title='Other JavaScript libraries:'>
          37
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='Platform Comparison'>
+        data-slide=38 title='Leveraging JS libraries via rCharts: Highcharts'>
          38
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=39 title='Future Research'>
+        data-slide=39 title=''>
          39
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=40 title='Contact'>
+        data-slide=40 title='Platform Comparison'>
          40
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=41 title='Packages used in this presentation:'>
+        data-slide=41 title='Future Research'>
          41
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=42 title='Selected References'>
+        data-slide=42 title='Contact'>
          42
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=43 title='Packages used in this presentation:'>
+         43
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title='Selected References'>
+         44
       </a>
     </li>
   </ul>
