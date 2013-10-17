@@ -3,6 +3,7 @@ clickme
 devtools
 ggplot2
 googleVis
+httr
 knitr
 manipulate
 rCharts

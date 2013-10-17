@@ -486,7 +486,12 @@ a$print('chart3')</textarea>
 
 <textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
 Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
-print(Bubble, tag = 'chart')</textarea>
+print(Bubble, tag = 'chart')
+
+--- {name: hint}
+
+M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
+</textarea>
 
 
 ---

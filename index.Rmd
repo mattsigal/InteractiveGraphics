@@ -22,6 +22,50 @@ ext_widgets : {rCharts: [libraries/nvd3, libraries/highcharts]}
 6. Leading Platforms and Packages
 7. Future Research
 
+--- &interactive
+
+## Using --- =hint
+
+```{r opts.label = 'interactive', results = 'asis'}
+suppressPackageStartupMessages(library(googleVis))
+Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
+print(Bubble, tag = 'chart')
+
+--- =hint
+
+M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
+
+```
+
+--- &interactive
+
+## Using --- {name: hint}
+
+```{r opts.label = 'interactive', results = 'asis'}
+suppressPackageStartupMessages(library(googleVis))
+Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
+print(Bubble, tag = 'chart')
+
+--- {name: hint}
+
+M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
+
+```
+--- &interactive
+
+## Using --- .hint
+
+```{r opts.label = 'interactive', results = 'asis'}
+suppressPackageStartupMessages(library(googleVis))
+Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
+print(Bubble, tag = 'chart')
+
+--- .hint
+
+M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
+
+```
+
 --- .segue .quote .dark
 
 <q> The grammar of graphics takes us beyond a <qe>limited set</qe> of charts (words) to 
@@ -493,6 +537,11 @@ a$print('chart3')
 suppressPackageStartupMessages(library(googleVis))
 Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
 print(Bubble, tag = 'chart')
+
+--- {name: hint}
+
+M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
+
 ```
 
 ---
