@@ -491,8 +491,8 @@ a$print('chart3')
 
 ```{r opts.label = 'interactive', results = 'asis'}
 suppressPackageStartupMessages(library(googleVis))
-M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year')
-print(M1, tag = 'chart')
+Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
+print(Bubble, tag = 'chart')
 ```
 
 ---
@@ -516,11 +516,24 @@ D3
 
 ---
 
-### Leveraging JavaScript libraries within R
+## Leveraging JavaScript libraries via rCharts
 
-* rCharts
-* example
+```{r results='asis', echo=FALSE, fig.align='center', cache=FALSE}
+df <- as.data.frame(matrix(c(18, 3, 1, 1, 84, 4, 7, 3, 87, 12, 9, 7),ncol=4,nrow=3,byrow=TRUE)) 
+colnames(df) <-c("Non-Smoker", "Occasional Smoker", "Regular Smoker", "Heavy Smoker")
+rownames(df) <-  c("None", "Some", "Freq")
 
+a <- rCharts:::Highcharts$new()
+a$params$width <- 900
+a$params$heigh <- 700
+a$chart(type = "column")
+a$title(text = "Smoking and Exercise")
+a$yAxis(title = "Count")
+a$plotOptions(column = list(stacking = "normal"))
+a$xAxis(title ="Category", categories = c("No Exercising", "Some Exercising", "Frequent Exercising"))
+a$data(df);
+a$print('hchart1', include_assets = TRUE, cdn = FALSE)
+```
 ---
 
 ## Platform Comparison

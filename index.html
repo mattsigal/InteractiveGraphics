@@ -774,7 +774,7 @@ plot &lt;- ggplot(data = dat,
 
 <p><br /></p>
 
-<p><span style="display: block; text-align: center; font-size: 70%;">(This is an approximation based upon the sinh-arcsinh transformation; Jones &amp; Pewsey, 2009)</span></p>
+<p><span style="display: block; text-align: center; font-size: 90%;">(This is an approximation based upon the sinh-arcsinh transformation; Jones &amp; Pewsey, 2009)</span></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -811,7 +811,7 @@ plot &lt;- ggplot(data = dat,
 
 <slide class="" id="slide-35" style="background:;">
   <hgroup>
-    <h2>Interactive Console</h2>
+    <h2>Interactive R Console for Time Series</h2>
   </hgroup>
   <article data-timings="">
      
@@ -859,59 +859,49 @@ a$print(&#39;chart3&#39;)</textarea></p>
 
 <slide class="" id="slide-36" style="background:;">
   <hgroup>
-    <h2>Interactive Designs for Research</h2>
-  </hgroup>
-  <article data-timings="">
-    
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-37" style="background:;">
-  <hgroup>
-    <h2>Interactive Console</h2>
+    <h2>Interactive Console with googleVis</h2>
   </hgroup>
   <article data-timings="">
      
 <div class='row-fluid'>
   <div class='span5'>
-    <form id="knitForm37" data-cell="37">
-      <p><textarea class='interactive' id='interactive37' data-cell='37' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
-M1 &lt;- gvisMotionChart(Fruits, idvar = &#39;Fruit&#39;, timevar = &#39;Year&#39;)
-print(M1, tag = &#39;chart&#39;)</textarea></p>
+    <form id="knitForm36" data-cell="36">
+      <p><textarea class='interactive' id='interactive36' data-cell='36' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
+Bubble &lt;- gvisBubbleChart(Fruits, idvar=&quot;Fruit&quot;, xvar=&quot;Sales&quot;, yvar=&quot;Expenses&quot;, colorvar=&quot;Year&quot;, sizevar=&quot;Profit&quot;, options=list(hAxis=&#39;{minValue:75, maxValue:125}&#39;))
+print(Bubble, tag = &#39;chart&#39;)</textarea></p>
 
-      <div id='aceeditor37' style="height:px;"></div>
+      <div id='aceeditor36' style="height:px;"></div>
       <div class='interactive btn-toolbar pull-left'>
         <div class='btn-group'>
-          <a class='btn btn-small action-button' id='runCode37' data-action='runCode'
-            data-cell='37' rel='tooltip' data-title='Run Code'>
+          <a class='btn btn-small action-button' id='runCode36' data-action='runCode'
+            data-cell='36' rel='tooltip' data-title='Run Code'>
             <i class='icon-play'></i>
           </a>
-          <a class='btn btn-small iBtn' id='testCode37' data-action='testCode'
-             data-cell='37' rel='tooltip' data-title='Test Code'>
+          <a class='btn btn-small iBtn' id='testCode36' data-action='testCode'
+             data-cell='36' rel='tooltip' data-title='Test Code'>
             <i class='icon-check'></i>
           </a>
-          <a class='btn btn-small iBtn' id='clearResult37' data-action='clearResult'
-             data-cell='37' rel='tooltip' data-title='Clear Output'>
+          <a class='btn btn-small iBtn' id='clearResult36' data-action='clearResult'
+             data-cell='36' rel='tooltip' data-title='Clear Output'>
             <i class="icon-remove"></i>
           </a>
-          <a class='btn  btn-small iBtn' id='getHint37' rel='tooltip' 
+          <a class='btn  btn-small iBtn' id='getHint36' rel='tooltip' 
             data-title="Get Hint" data-action='getHint'
-            data-cell='37' data-hint="">
+            data-cell='36' data-hint="">
             <i class="icon-bookmark"></i>
           </a>
         </div>
       </div>    </form>
   </div>
   <div class='span7'>
-    <div id="knitResult37" class='shiny-html-output'></div>
+    <div id="knitResult36" class='shiny-html-output'></div>
   </div>
 </div>
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-38" style="background:;">
+<slide class="" id="slide-37" style="background:;">
   <hgroup>
     <h3>Interactive Tableplot</h3>
   </hgroup>
@@ -921,32 +911,14 @@ print(M1, tag = &#39;chart&#39;)</textarea></p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-39" style="background:;">
+<slide class="" id="slide-38" style="background:;">
   <hgroup>
-    <h3>Interactive Mosaic Plot</h3>
+    <h2>Other Visualization Librairies</h2>
   </hgroup>
   <article data-timings="">
-    
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+    <p>D3</p>
 
-<slide class="" id="slide-40" style="background:;">
-  <article data-timings="">
-    <ul>
-<li>Both built with <code>shiny</code></li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-41" style="background:;">
-  <hgroup>
-    <h3>D3</h3>
-  </hgroup>
-  <article data-timings="">
-    <ul>
+<ul>
 <li>Popular for constructing interactive networks and maps</li>
 <li>Combination of HTML, JavaScript, CSS, and D3</li>
 </ul>
@@ -955,7 +927,7 @@ print(M1, tag = &#39;chart&#39;)</textarea></p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-42" style="background:;">
+<slide class="" id="slide-39" style="background:;">
   <hgroup>
     <h3>Other JavaScript libraries:</h3>
   </hgroup>
@@ -968,21 +940,79 @@ print(M1, tag = &#39;chart&#39;)</textarea></p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-43" style="background:;">
+<slide class="" id="slide-40" style="background:;">
   <hgroup>
-    <h3>Leveraging JavaScript libraries within R</h3>
+    <h2>Leveraging JavaScript libraries via rCharts</h2>
   </hgroup>
   <article data-timings="">
-    <ul>
-<li>rCharts</li>
-<li>example</li>
-</ul>
+    <script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/jquery-1.9.1.min.js></script>
+
+<script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/highcharts.js></script>
+
+<script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/highcharts-more.js></script>
+
+<div id='hchart1' class='rChart highcharts'></div>
+
+<script type='text/javascript'>
+    (function($){
+        $(function () {
+            var chart = new Highcharts.Chart({
+ "dom": "hchart1",
+"width":    900,
+"height":    400,
+"credits": {
+ "href": null,
+"text": null 
+},
+"title": {
+ "text": "Smoking and Exercise" 
+},
+"yAxis": {
+ "title": "Count" 
+},
+"heigh":    700,
+"chart": {
+ "type": "column",
+"renderTo": "hchart1" 
+},
+"plotOptions": {
+ "column": {
+ "stacking": "normal" 
+} 
+},
+"xAxis": {
+ "title": "Category",
+"categories": [ "No Exercising", "Some Exercising", "Frequent Exercising" ] 
+},
+"series": [
+ {
+ "name": "Non-Smoker",
+"data": [     18,     84,     87 ] 
+},
+{
+ "name": "Occasional Smoker",
+"data": [      3,      4,     12 ] 
+},
+{
+ "name": "Regular Smoker",
+"data": [      1,      7,      9 ] 
+},
+{
+ "name": "Heavy Smoker",
+"data": [      1,      3,      7 ] 
+} 
+],
+"id": "hchart1" 
+});
+        });
+    })(jQuery);
+</script>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-44" style="background:;">
+<slide class="" id="slide-41" style="background:;">
   <hgroup>
     <h2>Platform Comparison</h2>
   </hgroup>
@@ -1003,7 +1033,7 @@ print(M1, tag = &#39;chart&#39;)</textarea></p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-45" style="background:;">
+<slide class="" id="slide-42" style="background:;">
   <hgroup>
     <h2>Future Research</h2>
   </hgroup>
@@ -1028,7 +1058,7 @@ and influence diagnostics for structucal equation models.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-46" style="background:;">
+<slide class="" id="slide-43" style="background:;">
   <hgroup>
     <h2>Contact</h2>
   </hgroup>
@@ -1057,7 +1087,7 @@ and influence diagnostics for structucal equation models.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-47" style="background:;">
+<slide class="" id="slide-44" style="background:;">
   <hgroup>
     <h2>Packages used in this presentation:</h2>
   </hgroup>
@@ -1087,7 +1117,7 @@ and influence diagnostics for structucal equation models.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-48" style="background:;">
+<slide class="" id="slide-45" style="background:;">
   <hgroup>
     <h2>Selected References</h2>
   </hgroup>
@@ -1311,86 +1341,68 @@ and influence diagnostics for structucal equation models.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='Interactive Console'>
+        data-slide=35 title='Interactive R Console for Time Series'>
          35
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=36 title='Interactive Designs for Research'>
+        data-slide=36 title='Interactive Console with googleVis'>
          36
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='Interactive Console'>
+        data-slide=37 title='Interactive Tableplot'>
          37
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='Interactive Tableplot'>
+        data-slide=38 title='Other Visualization Librairies'>
          38
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=39 title='Interactive Mosaic Plot'>
+        data-slide=39 title='Other JavaScript libraries:'>
          39
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=40 title=''>
+        data-slide=40 title='Leveraging JavaScript libraries via rCharts'>
          40
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=41 title='D3'>
+        data-slide=41 title='Platform Comparison'>
          41
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=42 title='Other JavaScript libraries:'>
+        data-slide=42 title='Future Research'>
          42
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=43 title='Leveraging JavaScript libraries within R'>
+        data-slide=43 title='Contact'>
          43
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=44 title='Platform Comparison'>
+        data-slide=44 title='Packages used in this presentation:'>
          44
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=45 title='Future Research'>
+        data-slide=45 title='Selected References'>
          45
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=46 title='Contact'>
-         46
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=47 title='Packages used in this presentation:'>
-         47
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=48 title='Selected References'>
-         48
       </a>
     </li>
   </ul>

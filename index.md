@@ -440,7 +440,7 @@ We can do this live via the `shiny` package, which allows us to create a web app
 
 <br />
 
-<span style="display: block; text-align: center; font-size: 70%;">(This is an approximation based upon the sinh-arcsinh transformation; Jones & Pewsey, 2009)</span>
+<span style="display: block; text-align: center; font-size: 90%;">(This is an approximation based upon the sinh-arcsinh transformation; Jones & Pewsey, 2009)</span>
 
 ---
 
@@ -469,7 +469,7 @@ We can do this live via the `shiny` package, which allows us to create a web app
 
 --- &interactive
 
-## Interactive Console
+## Interactive R Console for Time Series
 
 <textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>require(rCharts)
 a <- Highcharts$new()
@@ -480,18 +480,13 @@ a$legend(symbolWidth = 80)
 a$print('chart3')</textarea>
 
 
----
-
-## Interactive Designs for Research
-
-
 --- &interactive
 
-## Interactive Console
+## Interactive Console with googleVis
 
 <textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
-M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year')
-print(M1, tag = 'chart')</textarea>
+Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
+print(Bubble, tag = 'chart')</textarea>
 
 
 ---
@@ -500,15 +495,9 @@ print(M1, tag = 'chart')</textarea>
 
 ---
 
-### Interactive Mosaic Plot
+## Other Visualization Librairies
 
----
-
-* Both built with `shiny`
-
----
-
-### D3
+D3
 
 * Popular for constructing interactive networks and maps
 * Combination of HTML, JavaScript, CSS, and D3
@@ -521,10 +510,66 @@ print(M1, tag = 'chart')</textarea>
 
 ---
 
-### Leveraging JavaScript libraries within R
+## Leveraging JavaScript libraries via rCharts
 
-* rCharts
-* example
+<script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/jquery-1.9.1.min.js></script>
+<script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/highcharts.js></script>
+<script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/highcharts-more.js></script>
+<div id='hchart1' class='rChart highcharts'></div>
+<script type='text/javascript'>
+    (function($){
+        $(function () {
+            var chart = new Highcharts.Chart({
+ "dom": "hchart1",
+"width":    900,
+"height":    400,
+"credits": {
+ "href": null,
+"text": null 
+},
+"title": {
+ "text": "Smoking and Exercise" 
+},
+"yAxis": {
+ "title": "Count" 
+},
+"heigh":    700,
+"chart": {
+ "type": "column",
+"renderTo": "hchart1" 
+},
+"plotOptions": {
+ "column": {
+ "stacking": "normal" 
+} 
+},
+"xAxis": {
+ "title": "Category",
+"categories": [ "No Exercising", "Some Exercising", "Frequent Exercising" ] 
+},
+"series": [
+ {
+ "name": "Non-Smoker",
+"data": [     18,     84,     87 ] 
+},
+{
+ "name": "Occasional Smoker",
+"data": [      3,      4,     12 ] 
+},
+{
+ "name": "Regular Smoker",
+"data": [      1,      7,      9 ] 
+},
+{
+ "name": "Heavy Smoker",
+"data": [      1,      3,      7 ] 
+} 
+],
+"id": "hchart1" 
+});
+        });
+    })(jQuery);
+</script>
 
 ---
 
