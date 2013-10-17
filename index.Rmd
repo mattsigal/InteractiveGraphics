@@ -8,9 +8,12 @@ highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : solarized_light      # {googlecode}
 widgets     : [mathjax, bootstrap, quiz, shiny, interactive]
 mode        : selfcontained # {standalone, draft}
-ext_widgets : {rCharts: [libraries/nvd3, libraries/highcharts]}
 
 ---
+
+```{r echo = F, message = F, cache = F}
+opts_chunk$set(results = 'asis', comment = NA, message = F, tidy = F)
+```
 
 ## Seminar Overview
 
@@ -21,51 +24,6 @@ ext_widgets : {rCharts: [libraries/nvd3, libraries/highcharts]}
 5. Interactive Graphics for Applied Research
 6. Leading Platforms and Packages
 7. Future Research
-
---- &interactive
-
-## Using --- =hint
-
-```{r opts.label = 'interactive', results = 'asis'}
-suppressPackageStartupMessages(library(googleVis))
-Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
-print(Bubble, tag = 'chart')
-
---- =hint
-
-M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
-
-```
-
---- &interactive
-
-## Using --- {name: hint}
-
-```{r opts.label = 'interactive', results = 'asis'}
-suppressPackageStartupMessages(library(googleVis))
-Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
-print(Bubble, tag = 'chart')
-
---- {name: hint}
-
-M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
-
-```
-
---- &interactive
-
-## Using --- .hint
-
-```{r opts.label = 'interactive', results = 'asis'}
-suppressPackageStartupMessages(library(googleVis))
-Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
-print(Bubble, tag = 'chart')
-
---- .hint
-
-M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
-
-```
 
 --- .segue .quote .dark
 
@@ -500,53 +458,6 @@ We can do this live via the `shiny` package, which allows us to create a web app
 
 ---
 
-## Interactive Chart with Shiny Controls
-
-```{r opts.label = 'shiny'}
-slidifyUI(
-  sidebarPanel(
-    selectInput('sex', 'Choose Sex', c('Male', 'Female')),
-    selectInput('type', 'Choose Type',
-      c('multiBarChart', 'multiBarHorizontalChart')
-    )
-  ),
-  mainPanel(
-    tags$div(id = 'nvd3plot', class='shiny-html-output nvd3 rChart')
-  )
-)
-```
-
---- &interactive
-
-## Interactive R Console for Time Series
-
-```{r opts.label = 'interactive', results = 'asis'}
-require(rCharts)
-a <- Highcharts$new()
-a$chart(type = "spline")
-a$series(data = c(1, 3, 2, 4, 5, 4, 6, 2, 3, 5, NA), dashStyle = "longdash")
-a$series(data = c(NA, 4, 1, 3, 4, 2, 9, 1, 2, 3, 4), dashStyle = "shortdot")
-a$legend(symbolWidth = 80)
-a$print('chart3')
-```
-
---- &interactive
-
-## Interactive Console with googleVis
-
-```{r opts.label = 'interactive', results = 'asis'}
-suppressPackageStartupMessages(library(googleVis))
-Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
-print(Bubble, tag = 'chart')
-
---- {name: hint}
-
-M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
-
-```
-
----
-
 ### Interactive Tableplot
 
 ---
@@ -568,7 +479,8 @@ D3
 
 ## Leveraging JavaScript libraries via rCharts
 
-```{r results='asis', echo=FALSE, fig.align='center', cache=FALSE}
+```{r echo=FALSE, fig.align='center', cache=FALSE}
+library(rCharts)
 df <- as.data.frame(matrix(c(18, 3, 1, 1, 84, 4, 7, 3, 87, 12, 9, 7),ncol=4,nrow=3,byrow=TRUE)) 
 colnames(df) <-c("Non-Smoker", "Occasional Smoker", "Regular Smoker", "Heavy Smoker")
 rownames(df) <-  c("None", "Some", "Freq")
@@ -584,6 +496,7 @@ a$xAxis(title ="Category", categories = c("No Exercising", "Some Exercising", "F
 a$data(df);
 a$print('hchart1', include_assets = TRUE, cdn = FALSE)
 ```
+
 ---
 
 ## Platform Comparison
@@ -602,15 +515,6 @@ __R Packages__
 * Encourage researchers to provide online resources for readers to interact with
 * In particular, plan to code specific applications to aid in outlier detection
 and influence diagnostics for structucal equation models.
-
-<!---
-&vcenter
-<img style="height:600px; border:3px solid black;" src="assets/img/Anscombe.png"/>
-
-## Other Examples 
-&vcenter
-<img style="height:600px; border:3px solid black;" src="assets/img/bargraph.png"/>
--->
 
 ---
 
@@ -640,7 +544,7 @@ and influence diagnostics for structucal equation models.
   * `require(devtools); install_github('rCharts', 'ramnathv')`
 
 * Slides made with Ramnath Vaidyanathan's `slidify` package
-  * `require(devtools); install_github('slidify', 'ramnathv'); 
+  * `require(devtools); install_github('slidify', 'ramnathv');` 
   * `require(devtools); install_github('slidifyLibraries', 'ramnathv')`
 
 ---

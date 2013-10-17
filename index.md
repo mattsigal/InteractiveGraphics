@@ -8,9 +8,11 @@ highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : solarized_light      # {googlecode}
 widgets     : [mathjax, bootstrap, quiz, shiny, interactive]
 mode        : selfcontained # {standalone, draft}
-ext_widgets : {rCharts: [libraries/nvd3, libraries/highcharts]}
 
 ---
+
+
+
 
 ## Seminar Overview
 
@@ -21,48 +23,6 @@ ext_widgets : {rCharts: [libraries/nvd3, libraries/highcharts]}
 5. Interactive Graphics for Applied Research
 6. Leading Platforms and Packages
 7. Future Research
-
---- &interactive
-
-## Using --- =hint
-
-<textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
-Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
-print(Bubble, tag = 'chart')
-
---- =hint
-
-M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
-</textarea>
-
-
---- &interactive
-
-## Using --- {name: hint}
-
-<textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
-Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
-print(Bubble, tag = 'chart')
-
---- {name: hint}
-
-M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
-</textarea>
-
-
---- &interactive
-
-## Using --- .hint
-
-<textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
-Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
-print(Bubble, tag = 'chart')
-
---- .hint
-
-M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
-</textarea>
-
 
 --- .segue .quote .dark
 
@@ -486,58 +446,6 @@ We can do this live via the `shiny` package, which allows us to create a web app
 
 ---
 
-## Interactive Chart with Shiny Controls
-
-<div class="row-fluid">
-  <div class="span4">
-    <form class="well">
-      <label class="control-label" for="sex">Choose Sex</label>
-      <select id="sex">
-        <option value="Male" selected="selected">Male</option>
-        <option value="Female">Female</option>
-      </select>
-      <label class="control-label" for="type">Choose Type</label>
-      <select id="type">
-        <option value="multiBarChart" selected="selected">multiBarChart</option>
-        <option value="multiBarHorizontalChart">multiBarHorizontalChart</option>
-      </select>
-    </form>
-  </div>
-  <div class="span8">
-    <div id="nvd3plot" class="shiny-html-output nvd3 rChart"></div>
-  </div>
-</div>
-
-
---- &interactive
-
-## Interactive R Console for Time Series
-
-<textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>require(rCharts)
-a <- Highcharts$new()
-a$chart(type = "spline")
-a$series(data = c(1, 3, 2, 4, 5, 4, 6, 2, 3, 5, NA), dashStyle = "longdash")
-a$series(data = c(NA, 4, 1, 3, 4, 2, 9, 1, 2, 3, 4), dashStyle = "shortdot")
-a$legend(symbolWidth = 80)
-a$print('chart3')</textarea>
-
-
---- &interactive
-
-## Interactive Console with googleVis
-
-<textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
-Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
-print(Bubble, tag = 'chart')
-
---- {name: hint}
-
-M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
-</textarea>
-
-
----
-
 ### Interactive Tableplot
 
 ---
@@ -562,7 +470,8 @@ D3
 <script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/jquery-1.9.1.min.js></script>
 <script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/highcharts.js></script>
 <script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/highcharts-more.js></script>
-<div id='hchart1' class='rChart highcharts'></div>
+<script type='text/javascript' src=/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rCharts/libraries/highcharts/js/exporting.js></script>
+<div id = 'hchart1' class = 'rChart highcharts'></div>
 <script type='text/javascript'>
     (function($){
         $(function () {
@@ -574,12 +483,17 @@ D3
  "href": null,
 "text": null 
 },
+"exporting": {
+ "enabled": false 
+},
 "title": {
  "text": "Smoking and Exercise" 
 },
-"yAxis": {
+"yAxis": [
+ {
  "title": "Count" 
-},
+} 
+],
 "heigh":    700,
 "chart": {
  "type": "column",
@@ -590,26 +504,44 @@ D3
  "stacking": "normal" 
 } 
 },
-"xAxis": {
+"xAxis": [
+ {
  "title": "Category",
 "categories": [ "No Exercising", "Some Exercising", "Frequent Exercising" ] 
-},
+} 
+],
 "series": [
  {
  "name": "Non-Smoker",
-"data": [     18,     84,     87 ] 
+"data": [
+     18,
+    84,
+    87 
+] 
 },
 {
  "name": "Occasional Smoker",
-"data": [      3,      4,     12 ] 
+"data": [
+      3,
+     4,
+    12 
+] 
 },
 {
  "name": "Regular Smoker",
-"data": [      1,      7,      9 ] 
+"data": [
+      1,
+     7,
+     9 
+] 
 },
 {
  "name": "Heavy Smoker",
-"data": [      1,      3,      7 ] 
+"data": [
+      1,
+     3,
+     7 
+] 
 } 
 ],
 "id": "hchart1" 
@@ -617,6 +549,7 @@ D3
         });
     })(jQuery);
 </script>
+
 
 ---
 
@@ -636,15 +569,6 @@ __R Packages__
 * Encourage researchers to provide online resources for readers to interact with
 * In particular, plan to code specific applications to aid in outlier detection
 and influence diagnostics for structucal equation models.
-
-<!---
-&vcenter
-<img style="height:600px; border:3px solid black;" src="assets/img/Anscombe.png"/>
-
-## Other Examples 
-&vcenter
-<img style="height:600px; border:3px solid black;" src="assets/img/bargraph.png"/>
--->
 
 ---
 
@@ -674,7 +598,7 @@ and influence diagnostics for structucal equation models.
   * `require(devtools); install_github('rCharts', 'ramnathv')`
 
 * Slides made with Ramnath Vaidyanathan's `slidify` package
-  * `require(devtools); install_github('slidify', 'ramnathv'); 
+  * `require(devtools); install_github('slidify', 'ramnathv');` 
   * `require(devtools); install_github('slidifyLibraries', 'ramnathv')`
 
 ---
