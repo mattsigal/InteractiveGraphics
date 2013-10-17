@@ -22,6 +22,48 @@ ext_widgets : {rCharts: [libraries/nvd3, libraries/highcharts]}
 6. Leading Platforms and Packages
 7. Future Research
 
+--- &interactive
+
+## Using --- =hint
+
+<textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
+Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
+print(Bubble, tag = 'chart')
+
+--- =hint
+
+M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
+</textarea>
+
+
+--- &interactive
+
+## Using --- {name: hint}
+
+<textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
+Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
+print(Bubble, tag = 'chart')
+
+--- {name: hint}
+
+M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
+</textarea>
+
+
+--- &interactive
+
+## Using --- .hint
+
+<textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
+Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses", colorvar="Year", sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}'))
+print(Bubble, tag = 'chart')
+
+--- .hint
+
+M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
+</textarea>
+
+
 --- .segue .quote .dark
 
 <q> The grammar of graphics takes us beyond a <qe>limited set</qe> of charts (words) to 
