@@ -450,10 +450,12 @@ We can do this live via the `shiny` package, which allows us to create a web app
 <textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
 
 bub <- gvisBubbleChart(Fruits, 
-          idvar="Fruit", xvar="Sales",
-          yvar="Expenses", colorvar="Year", 
-          sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}')
-        )
+  idvar = "Fruit", 
+  xvar = "Sales", 
+  yvar = "Expenses", 
+  colorvar = "Year", 
+  sizevar = "Profit", options=list(hAxis='{minValue:75, maxValue:125}')
+)
 
 print(bub, tag = 'chart')</textarea>
 
@@ -489,13 +491,14 @@ print(bub, tag = 'chart')</textarea>
 
 ## `Processing`
 
+INSERT PROCESSING EXAMPLE HERE
 
 ---
 
 ### Leveraging JS libraries via `rCharts`: `Highcharts.js`
 
 <div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
-<iframe src="http://rpubs.com/mattsigal/highchart">Loading</iframe>
+<iframe src="http://rstudio-pubs-static.s3.amazonaws.com/9773_b39e1a7b7b3b44159f99ba358c0925b7.html">Loading</iframe>
 </div>
 
 ---
