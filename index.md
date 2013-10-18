@@ -480,7 +480,7 @@ print(Bubble, tag = 'chart')</textarea>
 ## `D3.js` (Data-Driven Documents)
 
 <div style="width: 100%; height: 90%; overflow: hidden; border:3px solid black;">
-<iframe src="https://github.com/mbostock/d3/wiki/Gallery#visual-index">Loading</iframe>
+<iframe src="http://bl.ocks.org/mbostock/raw/4062045/">Loading</iframe>
 </div>
 
 ---
@@ -538,9 +538,9 @@ install_github(c("httpuv", "shiny", "ggvis"), "rstudio")
 
 ## The Grand Tour...
 
-<div style="width: 100%; height: 85%; overflow: hidden; text-align: center;">
-<iframe src="http://glimmer.rstudio.com/msigal/tourdemo/" margin-left="150px">Loading</iframe>
-</div>
+<iframe src="http://glimmer.rstudio.com/msigal/tourdemo/" width="800" height="450">Loading</iframe>
+
+
 
 ---
 
@@ -571,7 +571,7 @@ and influence diagnostics for structucal equation models.
 
 ## Packages used and referenced in this presentation:
 
-* Hadley Wickham's `ggplot2`
+* Hadley Wickham's `ggplot2` and `ggvis`
 * Nacho Caballero's `clickme`
   * `require(devtools); install_github("clickme", "nachocab")`
 * RStudio's `manipulate` and `shiny`
@@ -586,6 +586,13 @@ and influence diagnostics for structucal equation models.
 
 ## Selected References
 
-* Shneiderman, B. (1996). The eyes have it. _Proc. IEEE Visual Languages_, pp. 336-343.
-* Jones, M. C. and Pewsey A. (2009). Sinh-arcsinh distributions. __Biometrika__, 96, pp. 761–780.
-
+* Cleveland, W. S. (1994). _The elements of graphing data_. Hobart Press.
+* Fry, B. (2007). Visualing data: Exploring and explaining data with the Processing environment. O’Reilly.
+* Jones, M. C. and Pewsey A. (2009). Sinh-arcsinh distributions. _Biometrika_, _96_, 761–780.
+* Murray, S. (2013). _Interactive data visualization for the web_. O’Reilly.
+* Murrell, P. (2011). _R graphics_. Chapman and Hall/CRC, 2nd edition.
+* Shneiderman, B. (1996). The eyes have it. _Proc. IEEE Visual Languages_, 336-343.
+* Theus, M. and Urbanek, S. (2009). _Interactive graphics for data analysis_. Taylor & Francis.
+* Wickham, H. (2009). _ggplot2: Elegant graphics for data analysis_. Springer, 2nd edition.
+* Wilkinson, L. (2005). _The grammar of graphics_. Springer, 2nd edition. 
+* Yau, N. (2011). _Visualize this_. Wiley.
