@@ -468,7 +468,7 @@ bub <- gvisBubbleChart(Fruits,
           sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}')
         )
 
-print(Bubble, tag = 'chart')
+print(bub, tag = 'chart')
 ```
 
 <span style="display: block; text-align: center; font-size: 30%; color:#ffffff;">M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')</span>

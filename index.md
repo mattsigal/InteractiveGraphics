@@ -448,12 +448,14 @@ We can do this live via the `shiny` package, which allows us to create a web app
 ## Interactive Console with googleVis
 
 <textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
-Bubble <- gvisBubbleChart(
-            Fruits, idvar="Fruit", xvar="Sales",
-            yvar="Expenses", colorvar="Year", 
-            sizevar="Profit", 
-            options=list(hAxis='{minValue:75, maxValue:125}'))
-print(Bubble, tag = 'chart')</textarea>
+
+bub <- gvisBubbleChart(Fruits, 
+          idvar="Fruit", xvar="Sales",
+          yvar="Expenses", colorvar="Year", 
+          sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}')
+        )
+
+print(bub, tag = 'chart')</textarea>
 
 
 <span style="display: block; text-align: center; font-size: 30%; color:#ffffff;">M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')</span>
@@ -587,7 +589,8 @@ and influence diagnostics for structucal equation models.
 ## Selected References
 
 * Cleveland, W. S. (1994). _The elements of graphing data_. Hobart Press.
-* Fry, B. (2007). Visualing data: Exploring and explaining data with the Processing environment. O’Reilly.
+* Few, S. (2009). _Now you see it_. Analytics Press.
+* Fry, B. (2007). Visualizing data: Exploring... data with the Processing environment. O’Reilly.
 * Jones, M. C. and Pewsey A. (2009). Sinh-arcsinh distributions. _Biometrika_, _96_, 761–780.
 * Murray, S. (2013). _Interactive data visualization for the web_. O’Reilly.
 * Murrell, P. (2011). _R graphics_. Chapman and Hall/CRC, 2nd edition.
