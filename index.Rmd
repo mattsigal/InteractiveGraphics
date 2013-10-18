@@ -601,7 +601,7 @@ and influence diagnostics for structucal equation models.
 
 * Cleveland, W. S. (1994). _The elements of graphing data_. Hobart Press.
 * Few, S. (2009). _Now you see it_. Analytics Press.
-* Fry, B. (2007). Visualing data: Exploring and explaining data with the Processing environment. O’Reilly.
+* Fry, B. (2007). Visualizing data: Exploring... data with the Processing environment. O’Reilly.
 * Jones, M. C. and Pewsey A. (2009). Sinh-arcsinh distributions. _Biometrika_, _96_, 761–780.
 * Murray, S. (2013). _Interactive data visualization for the web_. O’Reilly.
 * Murrell, P. (2011). _R graphics_. Chapman and Hall/CRC, 2nd edition.
