@@ -537,7 +537,11 @@ __R Packages__
 * `cranvas` reimplements `GGobi` (parallel coordinate plots; limited interactivity)
   * [Installation instructions](https://github.com/ggobi/cranvas/wiki)
 * `d3network` allows for the creation of D3-based force direction graphs in R
-  * `require(devtools)` + `install_github("d3Network", "christophergandrud")`
+  * `require(devtools); install_github("d3Network", "christophergandrud")`
+
+[__Mondrian__](http://stats.math.uni-augsburg.de/mondrian/mondrian.html): Local application written in Java, offers linked plots, some interactions, and queries.
+
+[__Tableau__](http://www.tableausoftware.com/): Interactive applets for business analytics.
 
 ---
 
@@ -560,7 +564,7 @@ install_github(c("httpuv", "shiny", "ggvis"), "rstudio")
 
 ## The Grand Tour...
 
-<iframe src="http://glimmer.rstudio.com/msigal/tourdemo/" width="800" height="450">Loading</iframe>
+<iframe src="http://glimmer.rstudio.com/msigal/tourdemo/" width="900" height="450">Loading</iframe>
 
 ---
 
