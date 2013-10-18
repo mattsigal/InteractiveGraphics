@@ -462,7 +462,7 @@ print(bub, tag = 'chart')</textarea>
 
 </div>
 
-<span style="display: block; text-align: center; font-size: 30%; color:#ffffff;">M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')</span>
+<span style="display: block; text-align: center; font-size: 30%; color:#ffffff;">M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); plot(M1, tag = 'chart')</span>
 
 ---
 
@@ -532,6 +532,8 @@ __R Packages__
 
 * One of Hadley Wickham's latest projects is reimplementing the grammar of graphics with interactive applications on the web in mind. This project, called `ggvis` is still in development, but already has a plethora of examples.
 * Refines the grammar of graphics (and one day might replace `ggplot2`)
+* In `ggplot2`, geom is kind of abstract (e.g., `geom_histogram()` combines `geom_bar()` and `stat_bin()`). In `ggvis`, pure geoms are called "marks", and combined geoms and stats are referred to as "branches".
+* No `qplot()` (or overloaded +)!
 * Rendered plots can be drawn on the canvas or as SVG 
 
 ```
@@ -546,8 +548,6 @@ install_github(c("httpuv", "shiny", "ggvis"), "rstudio")
 ## The Grand Tour...
 
 <iframe src="http://glimmer.rstudio.com/msigal/tourdemo/" width="800" height="450">Loading</iframe>
-
-
 
 ---
 

@@ -803,7 +803,7 @@ print(bub, tag = 'chart')</textarea>
 
 </div>
 
-<p><span style="display: block; text-align: center; font-size: 30%; color:#ffffff;">M1 &lt;- gvisMotionChart(Fruits, idvar = &#39;Fruit&#39;, timevar = &#39;Year&#39;); print(M1, tag = &#39;chart&#39;)</span></p>
+<p><span style="display: block; text-align: center; font-size: 30%; color:#ffffff;">M1 &lt;- gvisMotionChart(Fruits, idvar = &#39;Fruit&#39;, timevar = &#39;Year&#39;); plot(M1, tag = &#39;chart&#39;)</span></p>
 
       <div id='aceeditor34' style="height:px;"></div>
       <div class='interactive btn-toolbar pull-left'>
@@ -960,6 +960,8 @@ print(bub, tag = 'chart')</textarea>
     <ul>
 <li>One of Hadley Wickham&#39;s latest projects is reimplementing the grammar of graphics with interactive applications on the web in mind. This project, called <code>ggvis</code> is still in development, but already has a plethora of examples.</li>
 <li>Refines the grammar of graphics (and one day might replace <code>ggplot2</code>)</li>
+<li>In <code>ggplot2</code>, geom is kind of abstract (e.g., <code>geom_histogram()</code> combines <code>geom_bar()</code> and <code>stat_bin()</code>). In <code>ggvis</code>, pure geoms are called &quot;marks&quot;, and combined geoms and stats are referred to as &quot;branches&quot;.</li>
+<li>No <code>qplot()</code> (or overloaded +)!</li>
 <li>Rendered plots can be drawn on the canvas or as SVG </li>
 </ul>
 
