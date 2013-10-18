@@ -447,17 +447,16 @@ We can do this live via the `shiny` package, which allows us to create a web app
 --- &interactive
 ## Interactive Console with googleVis
 
-<textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>Bubble <- gvisBubbleChart(Fruits, 
-                          idvar="Fruit", 
-                          xvar="Sales",
-                          yvar="Expenses", 
-                          colorvar="Year", 
+<textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
+Bubble <- gvisBubbleChart(Fruits, 
+                          idvar="Fruit", xvar="Sales",
+                          yvar="Expenses", colorvar="Year", 
                           sizevar="Profit", 
                           options=list(hAxis='{minValue:75, maxValue:125}'))
 print(Bubble, tag = 'chart')</textarea>
 
 
-M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')
+<span style="display: block; text-align: center; font-size: 30%; color:#ffffff;">M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')</span>
 
 ---
 
@@ -467,16 +466,29 @@ M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag 
 
 ## Other Visualization Librairies
 
-D3
 
-* Popular for constructing interactive networks and maps
-* Combination of HTML, JavaScript, CSS, and D3
 
 ---
 
-### Other JavaScript libraries:
+## D3.js (Data-Driven Documents)
 
-* Processing
+* Based upon Protovis from the Stanford Visualization Group
+* Popular for constructing interactive networks and maps
+* Combination of HTML, JavaScript, CSS, and D3
+* Output is rendered in SVG (lossless)
+
+---
+
+## D3.js (Data-Driven Documents)
+
+<div style="width: 100%; height: 90%; overflow: hidden; border:3px solid black;">
+<iframe src="https://github.com/mbostock/d3/wiki/Gallery#visual-index">Loading</iframe>
+</div>
+
+---
+
+## Processing
+
 
 ---
 
@@ -488,19 +500,40 @@ D3
 
 ---
 
+### Leveraging JS libraries via rCharts: NVD3.js
+
 <div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
 <iframe src="http://glimmer.rstudio.com/msigal/shinyrChart/">Loading</iframe>
 </div>
 
 ---
 
-## Platform Comparison
-
+## Other Approaches: 
 __R Packages__
 * `animint` has a similar feature set to `clickme`, but targeted specifically for ggplot2 graphics.
   * `require(devtools)` and then `install_github("animint","tdhock")`
 * Pros
 * Cons
+
+---
+
+## ...And back to Wickham: `ggvis`
+
+* One of Hadley Wickham's latest projects is implementing the grammar of graphics for interactive applications on the web. This project is still in development, but already has a plethora of examples and vignettes.
+* Refines the grammar of graphics (and on day might replace `ggplot2`)
+* Rendered plots can be drawn on the canvas or as SVG 
+
+```
+library(devtools)
+install_github(c("assertthat", "testthat"))
+install_github(c("httpuv", "shiny", "ggvis"), "rstudio")
+```
+
+---
+
+<div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
+<iframe src="http://glimmer.rstudio.com/msigal/tourdemo/">Loading</iframe>
+</div>
 
 ---
 

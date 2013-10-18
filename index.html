@@ -788,16 +788,15 @@ plot &lt;- ggplot(data = dat,
 <div class='row-fluid'>
   <div class='span5'>
     <form id="knitForm34" data-cell="34">
-      <p><textarea class='interactive' id='interactive34' data-cell='34' data-results='asis' style='display:none'>Bubble &lt;- gvisBubbleChart(Fruits, 
-                          idvar=&quot;Fruit&quot;, 
-                          xvar=&quot;Sales&quot;,
-                          yvar=&quot;Expenses&quot;, 
-                          colorvar=&quot;Year&quot;, 
+      <p><textarea class='interactive' id='interactive34' data-cell='34' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
+Bubble &lt;- gvisBubbleChart(Fruits, 
+                          idvar=&quot;Fruit&quot;, xvar=&quot;Sales&quot;,
+                          yvar=&quot;Expenses&quot;, colorvar=&quot;Year&quot;, 
                           sizevar=&quot;Profit&quot;, 
                           options=list(hAxis=&#39;{minValue:75, maxValue:125}&#39;))
 print(Bubble, tag = &#39;chart&#39;)</textarea></p>
 
-<p>M1 &lt;- gvisMotionChart(Fruits, idvar = &#39;Fruit&#39;, timevar = &#39;Year&#39;); print(M1, tag = &#39;chart&#39;)</p>
+<p><span style="display: block; text-align: center; font-size: 30%; color:#ffffff;">M1 &lt;- gvisMotionChart(Fruits, idvar = &#39;Fruit&#39;, timevar = &#39;Year&#39;); print(M1, tag = &#39;chart&#39;)</span></p>
 
       <div id='aceeditor34' style="height:px;"></div>
       <div class='interactive btn-toolbar pull-left'>
@@ -845,24 +844,21 @@ print(Bubble, tag = &#39;chart&#39;)</textarea></p>
     <h2>Other Visualization Librairies</h2>
   </hgroup>
   <article data-timings="">
-    <p>D3</p>
-
-<ul>
-<li>Popular for constructing interactive networks and maps</li>
-<li>Combination of HTML, JavaScript, CSS, and D3</li>
-</ul>
-
+    
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-37" style="background:;">
   <hgroup>
-    <h3>Other JavaScript libraries:</h3>
+    <h2>D3.js (Data-Driven Documents)</h2>
   </hgroup>
   <article data-timings="">
     <ul>
-<li>Processing</li>
+<li>Based upon Protovis from the Stanford Visualization Group</li>
+<li>Popular for constructing interactive networks and maps</li>
+<li>Combination of HTML, JavaScript, CSS, and D3</li>
+<li>Output is rendered in SVG (lossless)</li>
 </ul>
 
   </article>
@@ -870,6 +866,29 @@ print(Bubble, tag = &#39;chart&#39;)</textarea></p>
 </slide>
 
 <slide class="" id="slide-38" style="background:;">
+  <hgroup>
+    <h2>D3.js (Data-Driven Documents)</h2>
+  </hgroup>
+  <article data-timings="">
+    <div style="width: 100%; height: 90%; overflow: hidden; border:3px solid black;">
+<iframe src="https://github.com/mbostock/d3/wiki/Gallery#visual-index">Loading</iframe>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-39" style="background:;">
+  <hgroup>
+    <h2>Processing</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-40" style="background:;">
   <hgroup>
     <h3>Leveraging JS libraries via rCharts: Highcharts</h3>
   </hgroup>
@@ -882,7 +901,10 @@ print(Bubble, tag = &#39;chart&#39;)</textarea></p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-39" style="background:;">
+<slide class="" id="slide-41" style="background:;">
+  <hgroup>
+    <h3>Leveraging JS libraries via rCharts: NVD3.js</h3>
+  </hgroup>
   <article data-timings="">
     <div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
 <iframe src="http://glimmer.rstudio.com/msigal/shinyrChart/">Loading</iframe>
@@ -892,9 +914,9 @@ print(Bubble, tag = &#39;chart&#39;)</textarea></p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-40" style="background:;">
+<slide class="" id="slide-42" style="background:;">
   <hgroup>
-    <h2>Platform Comparison</h2>
+    <h2>Other Approaches:</h2>
   </hgroup>
   <article data-timings="">
     <p><strong>R Packages</strong></p>
@@ -913,7 +935,37 @@ print(Bubble, tag = &#39;chart&#39;)</textarea></p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-41" style="background:;">
+<slide class="" id="slide-43" style="background:;">
+  <hgroup>
+    <h2>...And back to Wickham: <code>ggvis</code></h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>One of Hadley Wickham&#39;s latest projects is implementing the grammar of graphics for interactive applications on the web. This project is still in development, but already has a plethora of examples and vignettes.</li>
+<li>Refines the grammar of graphics (and on day might replace <code>ggplot2</code>)</li>
+<li>Rendered plots can be drawn on the canvas or as SVG </li>
+</ul>
+
+<pre><code>library(devtools)
+install_github(c(&quot;assertthat&quot;, &quot;testthat&quot;))
+install_github(c(&quot;httpuv&quot;, &quot;shiny&quot;, &quot;ggvis&quot;), &quot;rstudio&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-44" style="background:;">
+  <article data-timings="">
+    <div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
+<iframe src="http://glimmer.rstudio.com/msigal/tourdemo/">Loading</iframe>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-45" style="background:;">
   <hgroup>
     <h2>Future Research</h2>
   </hgroup>
@@ -929,7 +981,7 @@ and influence diagnostics for structucal equation models.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-42" style="background:;">
+<slide class="" id="slide-46" style="background:;">
   <hgroup>
     <h2>Contact</h2>
   </hgroup>
@@ -958,7 +1010,7 @@ and influence diagnostics for structucal equation models.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-43" style="background:;">
+<slide class="" id="slide-47" style="background:;">
   <hgroup>
     <h2>Packages used in this presentation:</h2>
   </hgroup>
@@ -988,7 +1040,7 @@ and influence diagnostics for structucal equation models.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-44" style="background:;">
+<slide class="" id="slide-48" style="background:;">
   <hgroup>
     <h2>Selected References</h2>
   </hgroup>
@@ -1224,50 +1276,74 @@ and influence diagnostics for structucal equation models.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='Other JavaScript libraries:'>
+        data-slide=37 title='D3.js (Data-Driven Documents)'>
          37
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='Leveraging JS libraries via rCharts: Highcharts'>
+        data-slide=38 title='D3.js (Data-Driven Documents)'>
          38
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=39 title=''>
+        data-slide=39 title='Processing'>
          39
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=40 title='Platform Comparison'>
+        data-slide=40 title='Leveraging JS libraries via rCharts: Highcharts'>
          40
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=41 title='Future Research'>
+        data-slide=41 title='Leveraging JS libraries via rCharts: NVD3.js'>
          41
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=42 title='Contact'>
+        data-slide=42 title='Other Approaches:'>
          42
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=43 title='Packages used in this presentation:'>
+        data-slide=43 title='...And back to Wickham: <code>ggvis</code>'>
          43
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=44 title='Selected References'>
+        data-slide=44 title=''>
          44
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=45 title='Future Research'>
+         45
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=46 title='Contact'>
+         46
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=47 title='Packages used in this presentation:'>
+         47
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=48 title='Selected References'>
+         48
       </a>
     </li>
   </ul>
