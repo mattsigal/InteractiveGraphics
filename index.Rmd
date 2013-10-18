@@ -462,14 +462,11 @@ We can do this live via the `shiny` package, which allows us to create a web app
 ```{r bubble, opts.label = 'interactive', results = 'asis'}
 suppressPackageStartupMessages(library(googleVis))
 
-# NEWLINE
-
-Bubble <- gvisBubbleChart(
-            Fruits, idvar="Fruit", 
-            xvar="Sales",
-            yvar="Expenses", colorvar="Year", 
-            sizevar="Profit", 
-            options=list(hAxis='{minValue:75, maxValue:125}'))
+bub <- gvisBubbleChart(Fruits, 
+          idvar="Fruit", xvar="Sales",
+          yvar="Expenses", colorvar="Year", 
+          sizevar="Profit", options=list(hAxis='{minValue:75, maxValue:125}')
+        )
 
 print(Bubble, tag = 'chart')
 ```
