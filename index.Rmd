@@ -522,18 +522,22 @@ print(Bubble, tag = 'chart')
 ## Other Approaches: 
 
 __R Packages__
-* `animint` has a similar feature set to `clickme`, but targeted specifically for ggplot2 graphics.
+* `Acinonyx`, aka "iPlots eXtreme" - designed for large data (development limbo?)
+  * `install.packages("Acinonyx","http://rforge.net")`
+* `animint` has a similar feature set to `clickme`, but targeted specifically for `ggplot2` graphics.
   * `require(devtools)` and then `install_github("animint","tdhock")`
-* `cranvas` reimplements GGobi (parallel coordinate plots; limited interactivity)
-  * [Installation instructions](https://github.com/ggobi/cranvas/wiki)
 * `animation` (self-explanatory; no interactivity)
+* `cranvas` reimplements `GGobi` (parallel coordinate plots; limited interactivity)
+  * [Installation instructions](https://github.com/ggobi/cranvas/wiki)
+* `d3network` allows for the creation of D3-based force direction graphs in R
+  * `require(devtools)` + `install_github("d3Network", "christophergandrud")`
 
 ---
 
-## ...And back to Wickham: `ggvis`
+## ...And finally back to Wickham.
 
-* One of Hadley Wickham's latest projects is implementing the grammar of graphics for interactive applications on the web. This project is still in development, but already has a plethora of examples and vignettes.
-* Refines the grammar of graphics (and on day might replace `ggplot2`)
+* One of Hadley Wickham's latest projects is reimplementing the grammar of graphics with interactive applications on the web in mind. This project, called `ggvis` is still in development, but already has a plethora of examples.
+* Refines the grammar of graphics (and one day might replace `ggplot2`)
 * Rendered plots can be drawn on the canvas or as SVG 
 
 ```
@@ -545,7 +549,9 @@ install_github(c("httpuv", "shiny", "ggvis"), "rstudio")
 
 ---
 
-<div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
+## The Grand Tour...
+
+<div style="width: 100%; height: 85%; overflow: hidden; text-align: center;">
 <iframe src="http://glimmer.rstudio.com/msigal/tourdemo/">Loading</iframe>
 </div>
 
@@ -576,7 +582,7 @@ and influence diagnostics for structucal equation models.
 
 ---
 
-## Packages used in this presentation:
+## Packages used and referenced in this presentation:
 
 * Hadley Wickham's `ggplot2`
 * Nacho Caballero's `clickme`

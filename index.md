@@ -448,11 +448,11 @@ We can do this live via the `shiny` package, which allows us to create a web app
 ## Interactive Console with googleVis
 
 <textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
-Bubble <- gvisBubbleChart(Fruits, 
-                          idvar="Fruit", xvar="Sales",
-                          yvar="Expenses", colorvar="Year", 
-                          sizevar="Profit", 
-                          options=list(hAxis='{minValue:75, maxValue:125}'))
+Bubble <- gvisBubbleChart(
+            Fruits, idvar="Fruit", xvar="Sales",
+            yvar="Expenses", colorvar="Year", 
+            sizevar="Profit", 
+            options=list(hAxis='{minValue:75, maxValue:125}'))
 print(Bubble, tag = 'chart')</textarea>
 
 
@@ -460,26 +460,24 @@ print(Bubble, tag = 'chart')</textarea>
 
 ---
 
-### Interactive Tableplot
-
----
-
 ## Other Visualization Librairies
 
-
+* I am a big fan of `R` (if it should be done, there probably is a package)
+* However, there are a wide variety of other languages to choose from when thinking about implementing interactive graphics.
+* Many are based upon JavaScript and are designed to be stand-alone web applications.
 
 ---
 
-## D3.js (Data-Driven Documents)
+## `D3.js` (Data-Driven Documents)
 
-* Based upon Protovis from the Stanford Visualization Group
+* Based upon `Protovis` from the Stanford Visualization Group
 * Popular for constructing interactive networks and maps
 * Combination of HTML, JavaScript, CSS, and D3
 * Output is rendered in SVG (lossless)
 
 ---
 
-## D3.js (Data-Driven Documents)
+## `D3.js` (Data-Driven Documents)
 
 <div style="width: 100%; height: 90%; overflow: hidden; border:3px solid black;">
 <iframe src="https://github.com/mbostock/d3/wiki/Gallery#visual-index">Loading</iframe>
@@ -487,12 +485,12 @@ print(Bubble, tag = 'chart')</textarea>
 
 ---
 
-## Processing
+## `Processing`
 
 
 ---
 
-### Leveraging JS libraries via rCharts: Highcharts
+### Leveraging JS libraries via `rCharts`: `Highcharts.js`
 
 <div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
 <iframe src="http://rpubs.com/mattsigal/highchart">Loading</iframe>
@@ -500,7 +498,7 @@ print(Bubble, tag = 'chart')</textarea>
 
 ---
 
-### Leveraging JS libraries via rCharts: NVD3.js
+### Leveraging JS libraries via `rCharts`: `NVD3.js`
 
 <div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
 <iframe src="http://glimmer.rstudio.com/msigal/shinyrChart/">Loading</iframe>
@@ -509,21 +507,28 @@ print(Bubble, tag = 'chart')</textarea>
 ---
 
 ## Other Approaches: 
+
 __R Packages__
-* `animint` has a similar feature set to `clickme`, but targeted specifically for ggplot2 graphics.
+* `Acinonyx`, aka "iPlots eXtreme" - designed for large data (development limbo?)
+  * `install.packages("Acinonyx","http://rforge.net")`
+* `animint` has a similar feature set to `clickme`, but targeted specifically for `ggplot2` graphics.
   * `require(devtools)` and then `install_github("animint","tdhock")`
-* Pros
-* Cons
+* `animation` (self-explanatory; no interactivity)
+* `cranvas` reimplements `GGobi` (parallel coordinate plots; limited interactivity)
+  * [Installation instructions](https://github.com/ggobi/cranvas/wiki)
+* `d3network` allows for the creation of D3-based force direction graphs in R
+  * `require(devtools)` + `install_github("d3Network", "christophergandrud")`
 
 ---
 
-## ...And back to Wickham: `ggvis`
+## ...And finally back to Wickham.
 
-* One of Hadley Wickham's latest projects is implementing the grammar of graphics for interactive applications on the web. This project is still in development, but already has a plethora of examples and vignettes.
-* Refines the grammar of graphics (and on day might replace `ggplot2`)
+* One of Hadley Wickham's latest projects is reimplementing the grammar of graphics with interactive applications on the web in mind. This project, called `ggvis` is still in development, but already has a plethora of examples.
+* Refines the grammar of graphics (and one day might replace `ggplot2`)
 * Rendered plots can be drawn on the canvas or as SVG 
 
 ```
+# Installation:
 library(devtools)
 install_github(c("assertthat", "testthat"))
 install_github(c("httpuv", "shiny", "ggvis"), "rstudio")
@@ -531,8 +536,10 @@ install_github(c("httpuv", "shiny", "ggvis"), "rstudio")
 
 ---
 
-<div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
-<iframe src="http://glimmer.rstudio.com/msigal/tourdemo/">Loading</iframe>
+## The Grand Tour...
+
+<div style="width: 100%; height: 85%; overflow: hidden; text-align: center;">
+<iframe src="http://glimmer.rstudio.com/msigal/tourdemo/" margin-left="150px">Loading</iframe>
 </div>
 
 ---
@@ -562,7 +569,7 @@ and influence diagnostics for structucal equation models.
 
 ---
 
-## Packages used in this presentation:
+## Packages used and referenced in this presentation:
 
 * Hadley Wickham's `ggplot2`
 * Nacho Caballero's `clickme`
