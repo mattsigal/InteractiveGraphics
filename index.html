@@ -788,17 +788,20 @@ plot &lt;- ggplot(data = dat,
 <div class='row-fluid'>
   <div class='span5'>
     <form id="knitForm34" data-cell="34">
-      <p><textarea class='interactive' id='interactive34' data-cell='34' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))</p>
+      <div>
+<textarea class='interactive' id='interactive34' data-cell='34' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
 
-<p>bub &lt;- gvisBubbleChart(Fruits, 
-  idvar = &quot;Fruit&quot;, 
-  xvar = &quot;Sales&quot;, 
-  yvar = &quot;Expenses&quot;, 
-  colorvar = &quot;Year&quot;, 
-  sizevar = &quot;Profit&quot;, options=list(hAxis=&#39;{minValue:75, maxValue:125}&#39;)
-)</p>
+bub <- gvisBubbleChart(Fruits, 
+  idvar = "Fruit", 
+  xvar = "Sales", 
+  yvar = "Expenses", 
+  colorvar = "Year", 
+  sizevar = "Profit", options=list(hAxis='{minValue:75, maxValue:125}')
+)
 
-<p>print(bub, tag = &#39;chart&#39;)</textarea></p>
+print(bub, tag = 'chart')</textarea>
+
+</div>
 
 <p><span style="display: block; text-align: center; font-size: 30%; color:#ffffff;">M1 &lt;- gvisMotionChart(Fruits, idvar = &#39;Fruit&#39;, timevar = &#39;Year&#39;); print(M1, tag = &#39;chart&#39;)</span></p>
 

@@ -459,6 +459,7 @@ We can do this live via the `shiny` package, which allows us to create a web app
 --- &interactive
 ## Interactive Console with googleVis
 
+<div>
 ```{r bubble, opts.label = 'interactive', results = 'asis'}
 suppressPackageStartupMessages(library(googleVis))
 
@@ -472,6 +473,7 @@ bub <- gvisBubbleChart(Fruits,
 
 print(bub, tag = 'chart')
 ```
+</div>
 
 <span style="display: block; text-align: center; font-size: 30%; color:#ffffff;">M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year'); print(M1, tag = 'chart')</span>
 
