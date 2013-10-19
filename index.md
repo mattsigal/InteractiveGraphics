@@ -480,6 +480,7 @@ print(bub, tag = 'chart')</textarea>
 * Popular for constructing interactive networks and maps
 * Combination of HTML, JavaScript, CSS, and D3
 * Output is rendered in SVG (lossless)
+* Extremely versatile, but applications are typically directed
 
 ---
 
@@ -491,10 +492,11 @@ print(bub, tag = 'chart')</textarea>
 
 ---
 
-## `Processing`
+## `Polymaps`
 
-INSERT PROCESSING EXAMPLE HERE
-
+<div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
+<iframe src="http://www.dfconsulting.org/QMforum/polymaps/examples/unemployment/unemployment.html">Loading</iframe>
+</div>
 ---
 
 ### Leveraging JS libraries via `rCharts`: `Highcharts.js`
@@ -525,6 +527,8 @@ __R Packages__
   * [Installation instructions](https://github.com/ggobi/cranvas/wiki)
 * `d3network` allows for the creation of D3-based force direction graphs in R
   * `require(devtools); install_github("d3Network", "christophergandrud")`
+* `gridSVG` creates interactive `ggplot2` + `D3` objects
+  * `install.packages("gridSVG", repos="http://R-Forge.R-project.org")`
 
 [__Mondrian__](http://stats.math.uni-augsburg.de/mondrian/mondrian.html): Local application written in Java, offers linked plots, some interactions, and queries.
 
