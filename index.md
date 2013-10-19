@@ -526,6 +526,18 @@ print(bub, tag = 'chart')</textarea>
 
 ## Other Approaches: 
 
+[__Mondrian__](http://stats.math.uni-augsburg.de/mondrian/mondrian.html): Local application written in Java, offers linked plots, some interactions, and queries.
+
+[__Tableau__](http://www.tableausoftware.com/): Interactive applets for business analytics.
+
+[__Processing__](http://processing.org/) and [__Processing.js__](http://processingjs.org/).
+
+[__Many Eyes__](http://www-958.ibm.com/software/analytics/manyeyes/).
+
+---
+
+## Other Approaches:
+
 __R Packages__
 * `Acinonyx`, aka "iPlots eXtreme" - designed for large data (development limbo?)
   * `install.packages("Acinonyx","http://rforge.net")`
@@ -538,10 +550,6 @@ __R Packages__
   * `require(devtools); install_github("d3Network", "christophergandrud")`
 * `gridSVG` creates interactive `ggplot2` + `D3` objects
   * `install.packages("gridSVG", repos="http://R-Forge.R-project.org")`
-
-[__Mondrian__](http://stats.math.uni-augsburg.de/mondrian/mondrian.html): Local application written in Java, offers linked plots, some interactions, and queries.
-
-[__Tableau__](http://www.tableausoftware.com/): Interactive applets for business analytics.
 
 ---
 
