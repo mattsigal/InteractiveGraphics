@@ -99,7 +99,7 @@ an almost unlimited world of <qe>graphical forms</qe> (statements).</q></p>
 </ul></li>
 <li>Wilkinson&#39;s monograph aimed to replace chart typographies with an overarching language</li>
 <li>However, the <em>Grammar of Graphics</em> was primarily a theoretical treatise</li>
-<li>It was later implemented by Wilkinson in both the proprietary <code>Graphics Production Language</code> of <code>SPSS</code> and <code>nViZn</code>, the backbone of the <code>SPSS Visualization Designer</code> application.</li>
+<li>It was later implemented by Wilkinson in both the proprietary <monos>Graphics Production Language</monos> of <monos>SPSS</monos> and <monos>nViZn</monos>, the backbone of the <monos>SPSS Visualization Designer</monos> application.</li>
 </ul>
 
   </article>
@@ -577,7 +577,6 @@ plot &lt;- ggplot(data = dat,
 <li>The R syntax for <code>ggplot2</code></li>
 <li>The underlying <code>ggplot2</code> object</li>
 <li>The generated graph, which is only constructed when <code>print()</code> or <code>ggsave()</code> is called</li>
-<li>The &quot;pipeline&quot; is less restrictive (e.g., we can apply aesthetics before coordinates)</li>
 </ul></li>
 </ul>
 
@@ -602,6 +601,7 @@ plot &lt;- ggplot(data = dat,
 </ul></li>
 <li>The <code>+</code> operator allows us to make changes to the general plot object</li>
 <li>Additional geom calls add layers that allow us to build up a graphic</li>
+<li>The &quot;pipeline&quot; is less restrictive (e.g., we can apply aesthetics before coordinates)</li>
 <li>While not as flexible as Wilkinson&#39;s theoretical framework, substantially more practical.</li>
 </ul>
 
@@ -651,11 +651,11 @@ plot &lt;- ggplot(data = dat,
   <article data-timings="">
     <ul>
 <li><strong>Selection</strong> – the ability of users to dynamically subset the data</li>
+<li><strong>Slice</strong> – live faceting of the data</li>
 <li><strong>Probing</strong> – the generation of &quot;ToolTips&quot; for particular data points</li>
 <li><strong>Panning and Zooming</strong> – allows for the traversal of complex datasets </li>
-<li><strong>Drill Down</strong> - allows for the navigation of a categorical hierarchy</li>
-<li><strong>Slice</strong> – live faceting of the data</li>
-<li><strong>Modification</strong> - provide sandbox for users to explore</li>
+<li><strong>Drill Down</strong> – allows for the navigation of a categorical hierarchy</li>
+<li><strong>Modification</strong> – provide sandbox for users to explore</li>
 </ul>
 
   </article>
@@ -938,13 +938,30 @@ print(bub, tag = 'chart')</textarea>
     <h2>Other Approaches:</h2>
   </hgroup>
   <article data-timings="">
-    <p><a href="http://stats.math.uni-augsburg.de/mondrian/mondrian.html"><strong>Mondrian</strong></a>: Local application written in Java, offers linked plots, some interactions, and queries.</p>
+    <p><a href="http://stats.math.uni-augsburg.de/mondrian/mondrian.html"><strong>Mondrian</strong></a></p>
 
-<p><a href="http://www.tableausoftware.com/"><strong>Tableau</strong></a>: Interactive applets for business analytics.</p>
+<ul>
+<li>Local application written in Java, offers linked plots, some interactions, and queries.</li>
+</ul>
 
-<p><a href="http://processing.org/"><strong>Processing</strong></a> and <a href="http://processingjs.org/"><strong>Processing.js</strong></a>.</p>
+<p><a href="http://www.tableausoftware.com/"><strong>Tableau</strong></a>: </p>
 
-<p><a href="http://www-958.ibm.com/software/analytics/manyeyes/"><strong>Many Eyes</strong></a>.</p>
+<ul>
+<li>Interactive applets for business analytics.</li>
+<li>Latest version features R integration!</li>
+</ul>
+
+<p><a href="http://processing.org/"><strong>Processing</strong></a> and <a href="http://processingjs.org/"><strong>Processing.js</strong></a>:</p>
+
+<ul>
+<li>Language designed for interactive graphics.</li>
+</ul>
+
+<p><a href="http://www-958.ibm.com/software/analytics/manyeyes/"><strong>Many Eyes</strong></a></p>
+
+<ul>
+<li>Public hosting of data and graphic templates.</li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->

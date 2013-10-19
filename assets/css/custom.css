@@ -64,6 +64,11 @@ q2 {
   padding: 22px;  
 }
 
+monos {
+  font-family: "Source Code Pro", monospace;
+  color: darkred;
+}
+
 smbr {
 	line-heigh: 25%;
 }

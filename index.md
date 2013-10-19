@@ -42,7 +42,7 @@ an almost unlimited world of <qe>graphical forms</qe> (statements).</q>
   * Software will lack deep __structure__, and so be inefficient
 * Wilkinson's monograph aimed to replace chart typographies with an overarching language
 * However, the *Grammar of Graphics* was primarily a theoretical treatise
-* It was later implemented by Wilkinson in both the proprietary `Graphics Production Language` of `SPSS` and `nViZn`, the backbone of the `SPSS Visualization Designer` application.
+* It was later implemented by Wilkinson in both the proprietary <monos>Graphics Production Language</monos> of <monos>SPSS</monos> and <monos>nViZn</monos>, the backbone of the <monos>SPSS Visualization Designer</monos> application.
 
 ---
 
@@ -314,7 +314,6 @@ Is this a perfect implementaion of the Grammar of Graphics?
    * The R syntax for `ggplot2`
    * The underlying `ggplot2` object
    * The generated graph, which is only constructed when `print()` or `ggsave()` is called
-   * The "pipeline" is less restrictive (e.g., we can apply aesthetics before coordinates)
 
 ---
 
@@ -328,6 +327,7 @@ Is this problematic?
     * Look at `str(plot)`
 > * The `+` operator allows us to make changes to the general plot object
 > * Additional geom calls add layers that allow us to build up a graphic
+> * The "pipeline" is less restrictive (e.g., we can apply aesthetics before coordinates)
 > * While not as flexible as Wilkinson's theoretical framework, substantially more practical.
 
 --- .segue .quote .dark
@@ -355,11 +355,11 @@ Is this problematic?
 ## Terminology for Interactive Graphics
 
 * __Selection__ – the ability of users to dynamically subset the data
+* __Slice__ – live faceting of the data
 * __Probing__ – the generation of "ToolTips" for particular data points
 * __Panning and Zooming__ – allows for the traversal of complex datasets 
-* __Drill Down__ - allows for the navigation of a categorical hierarchy
-* __Slice__ – live faceting of the data
-* __Modification__ - provide sandbox for users to explore
+* __Drill Down__ – allows for the navigation of a categorical hierarchy
+* __Modification__ – provide sandbox for users to explore
 
 ---
 
@@ -526,13 +526,18 @@ print(bub, tag = 'chart')</textarea>
 
 ## Other Approaches: 
 
-[__Mondrian__](http://stats.math.uni-augsburg.de/mondrian/mondrian.html): Local application written in Java, offers linked plots, some interactions, and queries.
+[__Mondrian__](http://stats.math.uni-augsburg.de/mondrian/mondrian.html)
+* Local application written in Java, offers linked plots, some interactions, and queries.
 
-[__Tableau__](http://www.tableausoftware.com/): Interactive applets for business analytics.
+[__Tableau__](http://www.tableausoftware.com/): 
+* Interactive applets for business analytics.
+* Latest version features R integration!
 
-[__Processing__](http://processing.org/) and [__Processing.js__](http://processingjs.org/).
+[__Processing__](http://processing.org/) and [__Processing.js__](http://processingjs.org/):
+* Language designed for interactive graphics.
 
-[__Many Eyes__](http://www-958.ibm.com/software/analytics/manyeyes/).
+[__Many Eyes__](http://www-958.ibm.com/software/analytics/manyeyes/)
+* Public hosting of data and graphic templates.
 
 ---
 
