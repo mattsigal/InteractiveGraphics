@@ -43,7 +43,7 @@ an almost unlimited world of <qe>graphical forms</qe> (statements).</q>
   * Software will lack deep __structure__, and so be inefficient
 * Wilkinson's monograph aimed to replace chart typographies with an overarching language
 * However, the *Grammar of Graphics* was primarily a theoretical treatise
-* No direct implementation
+* It was later implemented by Wilkinson in both the proprietary `Graphics Production Language` of `SPSS` and `nViZn`, the backbone of the `SPSS Visualization Designer` application.
 
 ---
 

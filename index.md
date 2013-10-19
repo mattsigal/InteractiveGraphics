@@ -42,7 +42,7 @@ an almost unlimited world of <qe>graphical forms</qe> (statements).</q>
   * Software will lack deep __structure__, and so be inefficient
 * Wilkinson's monograph aimed to replace chart typographies with an overarching language
 * However, the *Grammar of Graphics* was primarily a theoretical treatise
-* No direct implementation
+* It was later implemented by Wilkinson in both the proprietary `Graphics Production Language` of `SPSS` and `nViZn`, the backbone of the `SPSS Visualization Designer` application.
 
 ---
 
@@ -114,8 +114,8 @@ The first step is to extract data into variables.
 
 We then can apply various algebraic techniques to the varset, which will define the structure of our plot.
 * Three primary operators: 
-  * Cross: a two-dimensional scatterplot (e.g., city copulation for 2000 and 2010)
-  * Nest: facets data by group variable (e.g., data for USA and data for World)
+  * Cross: a two-dimensional scatterplot (e.g., city population for 2000 and 2010)
+  * Nest: facets data by group variable (e.g., data for USA and data for Canada)
   * Blend: scatterplot with multiple overlays (e.g., data for 2000 and 2010)
 * Output of this stage is a `varset`
 
