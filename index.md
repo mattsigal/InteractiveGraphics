@@ -112,7 +112,8 @@ The first step is to extract data into variables.
 
 <smbr></smbr>
 
-We then can apply various algebraic techniques to the varset, which will define the structure of our plot.
+We then can apply various algebraic techniques to the varset, which will define the structure (or frame) of our plot. 
+
 * Three primary operators: 
   * Cross (\*): a two-dimensional scatterplot (e.g., city population for 2000 and 2010)
   * Nest (/): facets data by group variable (e.g., data for USA and data for Canada)
@@ -248,7 +249,7 @@ However, as most of these actions would be the default of a well-organized graph
 <smbr></smbr>
 
 <q2 style="border:2px solid black;"> 
-The Grammar of Graphics paradigm... means that, rather than having lots of different functions, each of which produces a different sort of plot,there is a small set of functions, each of which produces a different sort of plot *component*, and those components can be *combined* in many different ways to produce a huge variety of plots.
+The Grammar of Graphics paradigm... means that, rather than having lots of different functions, each of which produces a different sort of plot, there is a small set of functions, each of which produces a different sort of plot *component*, and those components can be *combined* in many different ways to produce a huge variety of plots.
 <br />
 <span style="display: block; text-align: right;">-Murrell, 2011</span>
 </q2>
@@ -257,19 +258,19 @@ The Grammar of Graphics paradigm... means that, rather than having lots of diffe
 
 ## The `gg` in `ggplot2`:
 
-General Principals for ggplot2:
+General Principals for `ggplot2`:
 
 1. Define the data you want to plot and create a plot template with `ggplot()`
 2. Specify the aesthetics of the shapes that will be used to represet the data with `aes()`
 3. Specify the graphical shapes (`geoms`) that will be used to view the data
   * Add them with the appropriate function; e.g. `geom_point()` or `geom_line()`
-4. Call the object to view it
+4. Call the object to render and view it
 
 ---
 
 ## Implementation
 
-Components of a graph:
+Components of a `ggplot2` graph:
 * `Data`: What we want to see!
 * `Geoms`: Geometric objects that are drawn to represent the data (determine the type of plot )
 * `Stats`: Statistical transformations of the data (e.g., binning or averaging)
@@ -349,6 +350,7 @@ Is this problematic?
 * It is now easier than ever to provide online supplements for research
 * Justifiability: The reader can "see it for themselves"
 * Discoverability: Allows access to views and projections of the data that were previously hard to conceptualize
+* Narrative: We can curate a virtual experience to convey a meaningful story, especially to an audience that we might not have been able to reach otherwise
 
 ---
 
@@ -365,7 +367,7 @@ Is this problematic?
 
 ## Simple Interactions
 
-The most basic interactions would allow the user to dynamically alter the parameters of a plot. This feature is already built into RStudio with the `manipulate` package. 
+The most basic interactions allow the user to dynamically alter the parameters of a plot. This feature is already built into RStudio with the `manipulate` package. 
 
 For example, the following code allows users to dynamically alter:
 * The x-axis limits
@@ -376,8 +378,8 @@ For example, the following code allows users to dynamically alter:
 ```r
 manipulate(plot(iris$Sepal.Length, iris$Sepal.Width, 
                 xlim = c(x.min, x.max), type = type, axes = axes, ann = label), 
-           x.min = slider(0,10, initial = 4), 
-           x.max = slider(0,10, initial = 8),
+           x.min = slider(0, 10, initial = 4), 
+           x.max = slider(0, 10, initial = 8),
            type = picker("points" = "p", "line" = "l", "none" = "n", 
                          initial = "points"),
            axes = checkbox(TRUE, "Draw Axes"),
@@ -445,6 +447,7 @@ We can do this live via the `shiny` package, which allows us to create a web app
 <span style="display: block; text-align: center; font-size: 90%;">(This is an approximation based upon the sinh-arcsinh transformation; Jones & Pewsey, 2009)</span>
 
 --- &interactive
+
 ## Interactive Console with googleVis
 
 <div>

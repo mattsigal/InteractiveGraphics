@@ -205,7 +205,7 @@ primary emphasis is on Specification.</p>
 
 <p><smbr></smbr></p>
 
-<p>We then can apply various algebraic techniques to the varset, which will define the structure of our plot.</p>
+<p>We then can apply various algebraic techniques to the varset, which will define the structure (or frame) of our plot. </p>
 
 <ul>
 <li>Three primary operators: 
@@ -479,7 +479,7 @@ GUIDE: axis(dim(2), label(&quot;Sepal Width&quot;)) <br />
     <p><smbr></smbr></p>
 
 <p><q2 style="border:2px solid black;"> 
-The Grammar of Graphics paradigm... means that, rather than having lots of different functions, each of which produces a different sort of plot,there is a small set of functions, each of which produces a different sort of plot <em>component</em>, and those components can be <em>combined</em> in many different ways to produce a huge variety of plots.
+The Grammar of Graphics paradigm... means that, rather than having lots of different functions, each of which produces a different sort of plot, there is a small set of functions, each of which produces a different sort of plot <em>component</em>, and those components can be <em>combined</em> in many different ways to produce a huge variety of plots.
 <br />
 <span style="display: block; text-align: right;">-Murrell, 2011</span>
 </q2></p>
@@ -493,7 +493,7 @@ The Grammar of Graphics paradigm... means that, rather than having lots of diffe
     <h2>The <code>gg</code> in <code>ggplot2</code>:</h2>
   </hgroup>
   <article data-timings="">
-    <p>General Principals for ggplot2:</p>
+    <p>General Principals for <code>ggplot2</code>:</p>
 
 <ol>
 <li>Define the data you want to plot and create a plot template with <code>ggplot()</code></li>
@@ -503,7 +503,7 @@ The Grammar of Graphics paradigm... means that, rather than having lots of diffe
 <ul>
 <li>Add them with the appropriate function; e.g. <code>geom_point()</code> or <code>geom_line()</code></li>
 </ul></li>
-<li>Call the object to view it</li>
+<li>Call the object to render and view it</li>
 </ol>
 
   </article>
@@ -515,7 +515,7 @@ The Grammar of Graphics paradigm... means that, rather than having lots of diffe
     <h2>Implementation</h2>
   </hgroup>
   <article data-timings="">
-    <p>Components of a graph:</p>
+    <p>Components of a <code>ggplot2</code> graph:</p>
 
 <ul>
 <li><code>Data</code>: What we want to see!</li>
@@ -638,6 +638,7 @@ plot &lt;- ggplot(data = dat,
 <li>It is now easier than ever to provide online supplements for research</li>
 <li>Justifiability: The reader can &quot;see it for themselves&quot;</li>
 <li>Discoverability: Allows access to views and projections of the data that were previously hard to conceptualize</li>
+<li>Narrative: We can curate a virtual experience to convey a meaningful story, especially to an audience that we might not have been able to reach otherwise</li>
 </ul>
 
   </article>
@@ -667,7 +668,7 @@ plot &lt;- ggplot(data = dat,
     <h2>Simple Interactions</h2>
   </hgroup>
   <article data-timings="">
-    <p>The most basic interactions would allow the user to dynamically alter the parameters of a plot. This feature is already built into RStudio with the <code>manipulate</code> package. </p>
+    <p>The most basic interactions allow the user to dynamically alter the parameters of a plot. This feature is already built into RStudio with the <code>manipulate</code> package. </p>
 
 <p>For example, the following code allows users to dynamically alter:</p>
 
@@ -679,8 +680,8 @@ plot &lt;- ggplot(data = dat,
 
 <pre><code class="r">manipulate(plot(iris$Sepal.Length, iris$Sepal.Width, 
                 xlim = c(x.min, x.max), type = type, axes = axes, ann = label), 
-           x.min = slider(0,10, initial = 4), 
-           x.max = slider(0,10, initial = 8),
+           x.min = slider(0, 10, initial = 4), 
+           x.max = slider(0, 10, initial = 8),
            type = picker(&quot;points&quot; = &quot;p&quot;, &quot;line&quot; = &quot;l&quot;, &quot;none&quot; = &quot;n&quot;, 
                          initial = &quot;points&quot;),
            axes = checkbox(TRUE, &quot;Draw Axes&quot;),

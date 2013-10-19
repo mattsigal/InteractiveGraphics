@@ -3,10 +3,15 @@ clickme
 devtools
 ggplot2
 googleVis
+gridExtra
 httr
 knitr
+lattice
+likert
 manipulate
+plyr
 rCharts
+reshape
 rjson
 shiny
 shinyRGL
