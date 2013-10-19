@@ -115,8 +115,8 @@ The first step is to extract data into variables.
 
 We then can apply various algebraic techniques to the varset, which will define the structure of our plot.
 * Three primary operators: 
-  * Cross: a two-dimensional scatterplot (e.g., city copulation for 2000 and 2010)
-  * Nest: facets data by group variable (e.g., data for USA and data for World)
+  * Cross: a two-dimensional scatterplot (e.g., city population for 2000 and 2010)
+  * Nest: facets data by group variable (e.g., data for USA and data for Canada)
   * Blend: scatterplot with multiple overlays (e.g., data for 2000 and 2010)
 * Output of this stage is a `varset`
 
