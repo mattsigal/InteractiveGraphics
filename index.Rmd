@@ -359,10 +359,10 @@ Is this problematic?
 ## Terminology for Interactive Graphics
 
 * __Selection__ – the ability of users to dynamically subset the data
+* __Slice__ – live faceting of the data
 * __Probing__ – the generation of "ToolTips" for particular data points
 * __Panning and Zooming__ – allows for the traversal of complex datasets 
-* __Drill Down__ - allows for the navigation of a categorical hierarchy
-* __Slice__ – live faceting of the data
+* __Drill Down__ – allows for the navigation of a categorical hierarchy
 * __Modification__ – provide sandbox for users to explore
 
 ---
