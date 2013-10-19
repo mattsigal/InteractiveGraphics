@@ -39,7 +39,7 @@ an almost unlimited world of <qe>graphical forms</qe> (statements).</q>
 
 * Chart typologies versus general graphics in graphical software
   * Software will necessarily offer __fewer charts__ than people want
-  * Software will less deep __structure__, and so be inefficient
+  * Software will lack deep __structure__, and so be inefficient
 * Wilkinson's monograph aimed to replace chart typographies with an overarching language
 * However, the *Grammar of Graphics* was primarily a theoretical treatise
 * No direct implementation
@@ -492,11 +492,20 @@ print(bub, tag = 'chart')</textarea>
 
 ---
 
-## `Polymaps`
+## `sigma.js`: A library for interactive networks
+
+<div style="width: 100%; height: 85%;">
+<iframe src="http://www.dfconsulting.org/QMforum/sigmajs/sigma.html">Loading</iframe>
+</div>
+
+---
+
+## `Polymaps`: US Unemployment 2009 Example
 
 <div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
 <iframe src="http://www.dfconsulting.org/QMforum/polymaps/examples/unemployment/unemployment.html">Loading</iframe>
 </div>
+
 ---
 
 ### Leveraging JS libraries via `rCharts`: `Highcharts.js`
