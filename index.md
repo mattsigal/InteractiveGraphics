@@ -526,18 +526,21 @@ print(bub, tag = 'chart')</textarea>
 
 ## Other Approaches: 
 
-[__Mondrian__](http://stats.math.uni-augsburg.de/mondrian/mondrian.html)
+[__Mondrian__](http://stats.math.uni-augsburg.de/mondrian/):
 * Local application written in Java, offers linked plots, some interactions, and queries.
+
+[__Eikosogram__](http://sas.uwaterloo.ca/~rwoldfor/software/eikosograms/):
+* Small Java applet for visualizing probabilistic concepts. 
 
 [__Tableau__](http://www.tableausoftware.com/): 
 * Interactive applets for business analytics.
 * Latest version features R integration!
 
-[__Processing__](http://processing.org/) and [__Processing.js__](http://processingjs.org/):
+[__Processing__](http://www.processing.org/) and [__Processing.js__](http://www.processingjs.org/):
 * Language designed for interactive graphics.
 
-[__Many Eyes__](http://www-958.ibm.com/software/analytics/manyeyes/)
-* Public hosting of data and graphic templates.
+[__Many Eyes__](http://www-958.ibm.com/software/analytics/manyeyes/):
+* Public hosting of data and graphic templates, sponsored by IBM.
 
 ---
 
