@@ -19,11 +19,10 @@ opts_chunk$set(results = 'asis', comment = NA, message = F, tidy = F)
 ## Seminar Overview
 
 1. Understanding the Grammar of Graphics
-2. Terminology for Interactivity
-3. Simple Interactions
-4. Interactive Graphic Examples
-5. Leading Platforms and Packages
-6. Future Research
+2. Terminology for Interactive Graphics
+3. Interactive Graphic Examples
+4. Leading Platforms and Packages
+5. Future Research
 
 --- .segue .quote .dark
 
@@ -666,11 +665,11 @@ Toronto, ON, Canada M3J 1P3
 * Cleveland, W. S. (1994). _The elements of graphing data_. Hobart Press.
 * Few, S. (2009). _Now you see it_. Analytics Press.
 * Fry, B. (2007). Visualizing data: Exploring... data with the Processing environment. O’Reilly.
-* Jones, M. C. and Pewsey A. (2009). Sinh-arcsinh distributions. _Biometrika_, _96_, 761–780.
+* Jones, M. C. \& Pewsey A. (2009). Sinh-arcsinh distributions. _Biometrika_, _96_, 761–780.
 * Murray, S. (2013). _Interactive data visualization for the web_. O’Reilly.
 * Murrell, P. (2011). _R graphics_. Chapman and Hall/CRC, 2nd edition.
 * Shneiderman, B. (1996). The eyes have it. _Proc. IEEE Visual Languages_, 336-343.
-* Theus, M. and Urbanek, S. (2009). _Interactive graphics for data analysis_. Taylor & Francis.
+* Theus, M. \& Urbanek, S. (2009). _Interactive graphics for data analysis_. Taylor & Francis.
 * Wickham, H. (2009). _ggplot2: Elegant graphics for data analysis_. Springer, 2nd edition.
 * Wilkinson, L. (2005). _The grammar of graphics_. Springer, 2nd edition. 
 * Yau, N. (2011). _Visualize this_. Wiley.  
