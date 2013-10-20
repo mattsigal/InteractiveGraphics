@@ -72,3 +72,10 @@ monos {
 smbr {
 	line-heigh: 25%;
 }
+
+contact {
+	width: 100%;
+	maring: 0px auto;
+    text-align: center;
+    align="center"
+}

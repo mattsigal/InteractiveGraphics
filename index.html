@@ -99,7 +99,7 @@ an almost unlimited world of <qe>graphical forms</qe> (statements).</q></p>
 </ul></li>
 <li>Wilkinson&#39;s monograph aimed to replace chart typographies with an overarching language</li>
 <li>However, the <em>Grammar of Graphics</em> was primarily a theoretical treatise</li>
-<li>It was later implemented by Wilkinson in both the proprietary <monos>Graphics Production Language</monos> of <monos>SPSS</monos> and <monos>nViZn</monos>, the backbone of the <monos>SPSS Visualization Designer</monos> application.</li>
+<li>It was later implemented by Wilkinson in both the proprietary <monos>Graphics Production Language</monos> of <monos>SPSS</monos> and <monos>nViZn</monos>, the backbone of the <monos>SPSS Visualization Designer</monos> application</li>
 </ul>
 
   </article>
@@ -119,8 +119,8 @@ an almost unlimited world of <qe>graphical forms</qe> (statements).</q></p>
 <li><strong>Display:</strong> The actual rendering of the graphic onto a display system</li>
 </ol>
 
-<p>Assembly and Display are typically products of the hardware and software we use, and Wilkinson&#39;s
-primary emphasis is on Specification.</p>
+<p><strong>Assembly</strong> and <strong>Display</strong> are typically products of the software and hardware we use, and Wilkinson&#39;s
+primary emphasis is on <strong>Specification</strong>.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -132,10 +132,10 @@ primary emphasis is on Specification.</p>
   </hgroup>
   <article data-timings="">
     <ol>
-<li><strong>Algebra:</strong> Operations that combine variables and specify dimensions of graphs</li>
-<li><strong>Scales:</strong> Representing variables on measured dimensions</li>
+<li><strong>Algebra:</strong> Operations that combine variables and specify graph dimensionality</li>
+<li><strong>Scales:</strong> Represent variables on measured dimensions</li>
 <li><strong>Statistics:</strong> Functions that allow graphs to change appearance and representation schemes</li>
-<li><strong>Geometry:</strong> Creation of geometric graphs from variables</li>
+<li><strong>Geometry:</strong> Creation of geometric objects from variables</li>
 <li><strong>Coordinates:</strong> Coordinate systems (from polar to complex map projections)</li>
 <li><strong>Aesthetics:</strong> Sensory attributes used to represent graphics</li>
 <li><strong>Facets and Guides:</strong> Allows for coordination between graphs and tables, and annotations</li>
@@ -181,16 +181,17 @@ primary emphasis is on Specification.</p>
 <p>The first step is to extract data into variables.</p>
 
 <ul>
-<li>The variable mapping function must return a single value in the range for every index.</li>
+<li>The variable mapping function returns a single value in the range for every index.</li>
 <li>Data can be broadly defined: 
 
 <ul>
 <li>a relational database</li>
 <li>indexing a stream of words</li>
 <li>a picture</li>
+<li>can be the product of bootstrapping, or even metadata.</li>
 </ul></li>
-<li>Can be the product of bootstrapping, or even metadata.</li>
 <li>Can apply variable transformations (mathematical, statistical, multivariate)</li>
+<li>Output of this stage is a <code>varset</code></li>
 </ul>
 
   </article>
@@ -207,15 +208,24 @@ primary emphasis is on Specification.</p>
 
 <p>We then can apply various algebraic techniques to the varset, which will define the structure (or frame) of our plot. </p>
 
-<ul>
-<li>Three primary operators: 
+<p><strong>Three primary operators</strong>: </p>
 
 <ul>
-<li>Cross (*): a two-dimensional scatterplot (e.g., city population for 2000 and 2010)</li>
-<li>Nest (/): facets data by group variable (e.g., data for USA and data for Canada)</li>
-<li>Blend (+): scatterplot with multiple overlays (e.g., data for 2000 and 2010)</li>
+<li>Cross (*): crosses all values of X with all values of Y, and a result exists for every case.
+
+<ul>
+<li>e.g., a two-dimensional scatterplot depicting city population for 2000 and 2010</li>
 </ul></li>
-<li>Output of this stage is a <code>varset</code></li>
+<li>Nest (/): nests all values of X in all of values of Z, results only exist for particular combinations.
+
+<ul>
+<li>e.g., facet by group variable; city/country produces separate plots for USA and Canada</li>
+</ul></li>
+<li>Blend (+): Combines all values of X with all values of Y on the same dimension 
+
+<ul>
+<li>e.g., plot the combined population for cities in 2000 and 2010</li>
+</ul></li>
 </ul>
 
   </article>
@@ -260,15 +270,15 @@ primary emphasis is on Specification.</p>
 <p>Statistical operations can be employed to reduce the number of rows in the varset.</p>
 
 <ul>
-<li>These are methods that alter the position of geometric graps.</li>
+<li>These are methods that can alter the positions of the geometric plot symbols.</li>
 <li>Five primary methods:
 
 <ul>
-<li>Bin (rect/tri/hex/quantile/boundary/voronoi/dot/stem)</li>
-<li>Summary (count/proportion/sum/mean/median/mode/sd/se/range/leaf)</li>
-<li>Region (spread/confi)</li>
-<li>Smooth (linear/quadratic/cubic/log/spline/density)</li>
-<li>Link (join/sequence/mst/hull/tsp/complete/neighbor)</li>
+<li><strong>Bin</strong> (rect/tri/hex/quantile/boundary/voronoi/dot/stem)</li>
+<li><strong>Summary</strong> (count/proportion/sum/mean/median/mode/sd/se/range/leaf)</li>
+<li><strong>Region</strong> (spread/confi)</li>
+<li><strong>Smooth</strong> (linear/quadratic/cubic/log/spline/density)</li>
+<li><strong>Link</strong> (join/sequence/mst/hull/tsp/complete/neighbor)</li>
 </ul></li>
 </ul>
 
@@ -287,7 +297,7 @@ primary emphasis is on Specification.</p>
 <p>These functions create graph objects that can be represented by magnitudes in a space.</p>
 
 <ul>
-<li>These are not actually visible (as they don&#39;t have aesthetic attributes)!
+<li>These are not actually visible (as they don&#39;t yet have aesthetic attributes)!
 
 <ul>
 <li>Functions: point/line/area/interval/path/schema</li>
@@ -312,7 +322,7 @@ primary emphasis is on Specification.</p>
 <p>Our next step is to choose and apply a coordinates system.</p>
 
 <ul>
-<li>These are sets that locate points in space.</li>
+<li>These are sets that locate points in space, and are amenable to transformation.</li>
 <li>Planar transformations:
 
 <ul>
@@ -432,15 +442,15 @@ primary emphasis is on Specification.</p>
     <h3>Specification: The Building Blocks of Graphical Displays</h3>
   </hgroup>
   <article data-timings="">
-    <p>Any statistical graphic can be expressed in terms of six statements:</p>
+    <p>In GPL, any statistical graphic can be expressed in terms of six statements:</p>
 
 <ol>
 <li><strong>DATA:</strong> These expressions involve the creation of variables from datasets</li>
 <li><strong>TRANS:</strong> Apply variable transformations (for instance, rank)</li>
-<li><strong>SCALE:</strong> Apple scale transformations (for instance, log)</li>
 <li><strong>ELEMENT:</strong> Define graphs (e.g., points) and their aesthetic attributes (e.g., color)</li>
-<li><strong>COORD:</strong> Define the coordinate system (e.g., polar)</li>
+<li><strong>SCALE:</strong> Apple scale transformations (for instance, log)</li>
 <li><strong>GUIDE:</strong> Define guides to aid interpretation (e.g. axes, legends, et cetera)</li>
+<li><strong>COORD:</strong> Define the coordinate system (e.g., Cartesian, polar)</li>
 </ol>
 
   </article>
@@ -453,19 +463,20 @@ primary emphasis is on Specification.</p>
   </hgroup>
   <article data-timings="">
     <p><blockcode style="border:2px solid black;">
-DATA: sepallength = &quot;SepalLength&quot; <br />
-DATA: sepalwidth = &quot;SepalWidth&quot; <br />
-TRANS: sepallength = sepallength <br />
-TRANS: sepalwidth = sepalwidth <br />
+DATA: x = &quot;SepalLength&quot; <br />
+DATA: y = &quot;SepalWidth&quot; <br />
+DATA: z = &quot;species&quot; <br />
+TRANS: x = x <br />
+TRANS: y = y <br />
+ELEMENT: point(position(x*y), color(z)) <br />
+COORD: rect(dim(1,2)) <br />
 SCALE: linear(dim(1)) <br />
 SCALE: linear(dim(2)) <br />
-ELEMENT: point(position(sepallength*sepalwidth), color(species)) <br />
-COORD: rect(dim(1,2)) <br />
 GUIDE: axis(dim(1), label(&quot;Sepal Length&quot;)) <br />
 GUIDE: axis(dim(2), label(&quot;Sepal Width&quot;)) <br />
 </blockcode></p>
 
-<p>However, as most of these actions would be the default of a well-organized graphical system, only the Element statements are truly necessary.</p>
+<p>However, as most of these actions would be the default of a well-organized graphical system, only the ELEMENT statement is truly necessary.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -515,16 +526,22 @@ The Grammar of Graphics paradigm... means that, rather than having lots of diffe
     <h2>Implementation</h2>
   </hgroup>
   <article data-timings="">
-    <p>Components of a <code>ggplot2</code> graph:</p>
+    <p>Components of a <code>ggplot2</code> object:</p>
+
+<ul>
+<li>One or more <code>Layers</code> consisting of:
 
 <ul>
 <li><code>Data</code>: What we want to see!</li>
-<li><code>Geoms</code>: Geometric objects that are drawn to represent the data (determine the type of plot )</li>
-<li><code>Stats</code>: Statistical transformations of the data (e.g., binning or averaging)</li>
-<li><code>Scales</code>: Controls mapping between data and aesthetics (variable or constant) </li>
-<li><code>Coord</code>: The coordinate system (provides axes and gridlines)</li>
-<li><code>Facets</code>: Allows us to break up the data into subsets</li>
+<li><code>Mapping</code>: Defines the aesthetics of the graphic</li>
+<li><code>Stat</code>: Statistical transformations of the data (e.g., binning or averaging)</li>
+<li><code>Geom</code>: Geometric objects that are drawn to represent the data (simple or complex)</li>
+<li><code>Position</code>: Position adjustments for each geom (e.g., jitter, dodge, stack)</li>
+</ul></li>
+<li><code>Scale</code>: Controls mapping between data and aesthetics (variable or constant; colour/position) </li>
 <li><code>Themes</code>: Relatively new <code>ggplot2</code> feature that allows for visual adjustments of a plot object </li>
+<li><code>Coord</code>: The coordinate system (provides axes and gridlines)</li>
+<li><code>Facet</code>: Allows us to break up the data into subsets</li>
 </ul>
 
   </article>
@@ -533,6 +550,24 @@ The Grammar of Graphics paradigm... means that, rather than having lots of diffe
 
 <slide class="" id="slide-19" style="background:;">
   <hgroup>
+    <h2>Mapping between <code>GPL</code> and <code>ggplot2</code></h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br /></p>
+
+<div style='text-align: center;'>
+    <img src='assets/img/gpltogg.png' style="height:380px;" />
+</div>
+
+<p><br />
+<span style="display: block; text-align: right; font-size: 90%;">(Based upon Wickham, 2010)</span></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
     <h2>From Wilkinson to Wickham:</h2>
   </hgroup>
   <article data-timings="">
@@ -540,17 +575,18 @@ The Grammar of Graphics paradigm... means that, rather than having lots of diffe
 
 <pre><code class="r">library(ggplot2)
 dat &lt;- iris
-plot &lt;- ggplot(data = dat, 
-               aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
-               geom_point() +
-               theme_bw()
+p1 &lt;- ggplot(data = dat, 
+             aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
+             geom_point() +
+             theme_bw()
+p1
 </code></pre>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-20" style="background:;">
+<slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h2>The grouped scatterplot:</h2>
   </hgroup>
@@ -561,7 +597,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>Wilkinson or Wickham?</h2>
   </hgroup>
@@ -584,7 +620,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-22" style="background:;">
+<slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Wilkinson or Wickham?</h2>
   </hgroup>
@@ -609,7 +645,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue quote dark" id="slide-23" style="background:;">
+<slide class="segue quote dark" id="slide-24" style="background:;">
   <article data-timings="">
     <p><q style='text-align: center;'>Dynamic, interactive visualizations... <br /> <qe>empower people</qe> <br /> to explore the data for themselves.</q></p>
 
@@ -619,7 +655,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue quote dark" id="slide-24" style="background:;">
+<slide class="segue quote dark" id="slide-25" style="background:;">
   <article data-timings="">
     <p><q>Overview first, zoom and filter, then details-on-demand.</q></p>
 
@@ -629,7 +665,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-25" style="background:;">
+<slide class="" id="slide-26" style="background:;">
   <hgroup>
     <h2>Why interaction?</h2>
   </hgroup>
@@ -645,7 +681,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-26" style="background:;">
+<slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h2>Terminology for Interactive Graphics</h2>
   </hgroup>
@@ -663,7 +699,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-27" style="background:;">
+<slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>Simple Interactions</h2>
   </hgroup>
@@ -692,7 +728,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-28" style="background:;">
+<slide class="" id="slide-29" style="background:;">
   <hgroup>
     <h3>RStudio&#39;s <code>manipulate</code> package</h3>
   </hgroup>
@@ -705,7 +741,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-29" style="background:;">
+<slide class="" id="slide-30" style="background:;">
   <hgroup>
     <h3>RStudio&#39;s <code>manipulate</code> package</h3>
   </hgroup>
@@ -723,7 +759,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h3><code>clickme</code> Scatterplot</h3>
   </hgroup>
@@ -744,7 +780,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-31" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <article data-timings="">
     <iframe src="http://www.dfconsulting.org/QMforum/temp-Points.html" width="90%" height="90%"
   style="border:3px solid black;">Loading</iframe>
@@ -753,7 +789,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-32" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>Interactive Plots for Pedagogy</h2>
   </hgroup>
@@ -766,7 +802,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <article data-timings="">
     <div style="width: 100%; height: 85%; overflow: hidden; border:3px solid black;">
 <iframe src="http://glimmer.rstudio.com/msigal/skewkurt/">Loading</iframe>
@@ -780,7 +816,7 @@ plot &lt;- ggplot(data = dat,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-34" style="background:;">
+<slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>Interactive Console with googleVis</h2>
   </hgroup>
@@ -788,9 +824,9 @@ plot &lt;- ggplot(data = dat,
      
 <div class='row-fluid'>
   <div class='span5'>
-    <form id="knitForm34" data-cell="34">
+    <form id="knitForm35" data-cell="35">
       <div>
-<textarea class='interactive' id='interactive34' data-cell='34' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
+<textarea class='interactive' id='interactive35' data-cell='35' data-results='asis' style='display:none'>suppressPackageStartupMessages(library(googleVis))
 
 bub <- gvisBubbleChart(Fruits, 
   idvar = "Fruit", 
@@ -806,38 +842,38 @@ print(bub, tag = 'chart')</textarea>
 
 <p><span style="display: block; text-align: center; font-size: 30%; color:#ffffff;">M1 &lt;- gvisMotionChart(Fruits, idvar = &#39;Fruit&#39;, timevar = &#39;Year&#39;); plot(M1, tag = &#39;chart&#39;)</span></p>
 
-      <div id='aceeditor34' style="height:px;"></div>
+      <div id='aceeditor35' style="height:px;"></div>
       <div class='interactive btn-toolbar pull-left'>
         <div class='btn-group'>
-          <a class='btn btn-small action-button' id='runCode34' data-action='runCode'
-            data-cell='34' rel='tooltip' data-title='Run Code'>
+          <a class='btn btn-small action-button' id='runCode35' data-action='runCode'
+            data-cell='35' rel='tooltip' data-title='Run Code'>
             <i class='icon-play'></i>
           </a>
-          <a class='btn btn-small iBtn' id='testCode34' data-action='testCode'
-             data-cell='34' rel='tooltip' data-title='Test Code'>
+          <a class='btn btn-small iBtn' id='testCode35' data-action='testCode'
+             data-cell='35' rel='tooltip' data-title='Test Code'>
             <i class='icon-check'></i>
           </a>
-          <a class='btn btn-small iBtn' id='clearResult34' data-action='clearResult'
-             data-cell='34' rel='tooltip' data-title='Clear Output'>
+          <a class='btn btn-small iBtn' id='clearResult35' data-action='clearResult'
+             data-cell='35' rel='tooltip' data-title='Clear Output'>
             <i class="icon-remove"></i>
           </a>
-          <a class='btn  btn-small iBtn' id='getHint34' rel='tooltip' 
+          <a class='btn  btn-small iBtn' id='getHint35' rel='tooltip' 
             data-title="Get Hint" data-action='getHint'
-            data-cell='34' data-hint="">
+            data-cell='35' data-hint="">
             <i class="icon-bookmark"></i>
           </a>
         </div>
       </div>    </form>
   </div>
   <div class='span7'>
-    <div id="knitResult34" class='shiny-html-output'></div>
+    <div id="knitResult35" class='shiny-html-output'></div>
   </div>
 </div>
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-35" style="background:;">
+<slide class="" id="slide-36" style="background:;">
   <hgroup>
     <h2>Other Visualization Librairies</h2>
   </hgroup>
@@ -852,7 +888,7 @@ print(bub, tag = 'chart')</textarea>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-36" style="background:;">
+<slide class="" id="slide-37" style="background:;">
   <hgroup>
     <h2><code>D3.js</code> (Data-Driven Documents)</h2>
   </hgroup>
@@ -869,7 +905,7 @@ print(bub, tag = 'chart')</textarea>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-37" style="background:;">
+<slide class="" id="slide-38" style="background:;">
   <hgroup>
     <h2><code>D3.js</code> (Data-Driven Documents)</h2>
   </hgroup>
@@ -882,7 +918,7 @@ print(bub, tag = 'chart')</textarea>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-38" style="background:;">
+<slide class="" id="slide-39" style="background:;">
   <hgroup>
     <h2><code>sigma.js</code>: A library for interactive networks</h2>
   </hgroup>
@@ -895,7 +931,7 @@ print(bub, tag = 'chart')</textarea>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-39" style="background:;">
+<slide class="" id="slide-40" style="background:;">
   <hgroup>
     <h2><code>Polymaps</code>: US Unemployment 2009 Example</h2>
   </hgroup>
@@ -908,7 +944,7 @@ print(bub, tag = 'chart')</textarea>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-40" style="background:;">
+<slide class="" id="slide-41" style="background:;">
   <hgroup>
     <h3>Leveraging JS libraries via <code>rCharts</code>: <code>Highcharts.js</code></h3>
   </hgroup>
@@ -921,7 +957,7 @@ print(bub, tag = 'chart')</textarea>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-41" style="background:;">
+<slide class="" id="slide-42" style="background:;">
   <hgroup>
     <h3>Leveraging JS libraries via <code>rCharts</code>: <code>NVD3.js</code></h3>
   </hgroup>
@@ -934,7 +970,7 @@ print(bub, tag = 'chart')</textarea>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-42" style="background:;">
+<slide class="" id="slide-43" style="background:;">
   <hgroup>
     <h2>Other Approaches:</h2>
   </hgroup>
@@ -974,7 +1010,7 @@ print(bub, tag = 'chart')</textarea>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-43" style="background:;">
+<slide class="" id="slide-44" style="background:;">
   <hgroup>
     <h2>Other Approaches:</h2>
   </hgroup>
@@ -1014,7 +1050,7 @@ print(bub, tag = 'chart')</textarea>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-44" style="background:;">
+<slide class="" id="slide-45" style="background:;">
   <hgroup>
     <h2>...And finally back to Wickham.</h2>
   </hgroup>
@@ -1037,7 +1073,7 @@ install_github(c(&quot;httpuv&quot;, &quot;shiny&quot;, &quot;ggvis&quot;), &quo
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-45" style="background:;">
+<slide class="" id="slide-46" style="background:;">
   <hgroup>
     <h2>The Grand Tour...</h2>
   </hgroup>
@@ -1048,7 +1084,7 @@ install_github(c(&quot;httpuv&quot;, &quot;shiny&quot;, &quot;ggvis&quot;), &quo
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-46" style="background:;">
+<slide class="" id="slide-47" style="background:;">
   <hgroup>
     <h2>Future Research</h2>
   </hgroup>
@@ -1064,36 +1100,28 @@ and influence diagnostics for structucal equation models.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-47" style="background:;">
+<slide class="" id="slide-48" style="background:;">
   <hgroup>
     <h2>Contact</h2>
   </hgroup>
   <article data-timings="">
-    <ul>
-<li>Matthew J. Sigal, MA
+    <p><strong>Matthew J. Sigal, MA</strong><br>
+Department of Psychology<br>
+262 Behavioural Science Building<br>
+York University, 4700 Keele St.<br>
+Toronto, ON, Canada M3J 1P3<br>
+(416) 736-2100 x66163  </p>
 
-<ul>
-<li><a href="mailto:matthewsigal@gmail.com">matthewsigal@gmail.com</a></li>
-<li><a href="mailto:msigal@yorku.ca">msigal@yorku.ca</a></li>
-<li>Department of Psychology</li>
-<li>262 Behavioural Science Building</li>
-<li>York University, 4700 Keele St.</li>
-<li>Toronto, ON, Canada M3J 1P3</li>
-<li>(416) 736-2100 x66163</li>
-</ul></li>
-<li>My websites: 
-
-<ul>
-<li><a href="http://www.matthewsigal.com">http://www.matthewsigal.com</a></li>
-<li><a href="http://www.dfconsulting.org">http://www.dfconsulting.org</a></li>
-</ul></li>
-</ul>
+<p><a href="mailto:matthewsigal@gmail.com">matthewsigal@gmail.com</a> / <a href="mailto:msigal@yorku.ca">msigal@yorku.ca</a><br>
+<br />
+<a href="http://www.matthewsigal.com">http://www.matthewsigal.com</a><br>
+<a href="http://www.dfconsulting.org">http://www.dfconsulting.org</a>  </p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-48" style="background:;">
+<slide class="" id="slide-49" style="background:;">
   <hgroup>
     <h2>Packages used and referenced in this presentation:</h2>
   </hgroup>
@@ -1123,7 +1151,7 @@ and influence diagnostics for structucal equation models.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-49" style="background:;">
+<slide class="" id="slide-50" style="background:;">
   <hgroup>
     <h2>Selected References</h2>
   </hgroup>
@@ -1139,7 +1167,9 @@ and influence diagnostics for structucal equation models.</li>
 <li>Theus, M. and Urbanek, S. (2009). <em>Interactive graphics for data analysis</em>. Taylor &amp; Francis.</li>
 <li>Wickham, H. (2009). <em>ggplot2: Elegant graphics for data analysis</em>. Springer, 2nd edition.</li>
 <li>Wilkinson, L. (2005). <em>The grammar of graphics</em>. Springer, 2nd edition. </li>
-<li>Yau, N. (2011). <em>Visualize this</em>. Wiley.</li>
+<li>Yau, N. (2011). <em>Visualize this</em>. Wiley.<br>
+<br />
+<span style="display: block; text-align: center; font-size: 110%; font-weight: bold">Slides available at: <a href="http://mattsigal.github.io/InteractiveGraphics/">http://mattsigal.github.io/InteractiveGraphics/</a></span></li>
 </ul>
 
   </article>
@@ -1260,19 +1290,19 @@ and influence diagnostics for structucal equation models.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='From Wilkinson to Wickham:'>
+        data-slide=19 title='Mapping between <code>GPL</code> and <code>ggplot2</code>'>
          19
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='The grouped scatterplot:'>
+        data-slide=20 title='From Wilkinson to Wickham:'>
          20
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='Wilkinson or Wickham?'>
+        data-slide=21 title='The grouped scatterplot:'>
          21
       </a>
     </li>
@@ -1284,7 +1314,7 @@ and influence diagnostics for structucal equation models.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title=''>
+        data-slide=23 title='Wilkinson or Wickham?'>
          23
       </a>
     </li>
@@ -1296,25 +1326,25 @@ and influence diagnostics for structucal equation models.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='Why interaction?'>
+        data-slide=25 title=''>
          25
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='Terminology for Interactive Graphics'>
+        data-slide=26 title='Why interaction?'>
          26
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=27 title='Simple Interactions'>
+        data-slide=27 title='Terminology for Interactive Graphics'>
          27
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=28 title='RStudio&#39;s <code>manipulate</code> package'>
+        data-slide=28 title='Simple Interactions'>
          28
       </a>
     </li>
@@ -1326,43 +1356,43 @@ and influence diagnostics for structucal equation models.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='<code>clickme</code> Scatterplot'>
+        data-slide=30 title='RStudio&#39;s <code>manipulate</code> package'>
          30
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title=''>
+        data-slide=31 title='<code>clickme</code> Scatterplot'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='Interactive Plots for Pedagogy'>
+        data-slide=32 title=''>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title=''>
+        data-slide=33 title='Interactive Plots for Pedagogy'>
          33
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='Interactive Console with googleVis'>
+        data-slide=34 title=''>
          34
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='Other Visualization Librairies'>
+        data-slide=35 title='Interactive Console with googleVis'>
          35
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=36 title='<code>D3.js</code> (Data-Driven Documents)'>
+        data-slide=36 title='Other Visualization Librairies'>
          36
       </a>
     </li>
@@ -1374,31 +1404,31 @@ and influence diagnostics for structucal equation models.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='<code>sigma.js</code>: A library for interactive networks'>
+        data-slide=38 title='<code>D3.js</code> (Data-Driven Documents)'>
          38
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=39 title='<code>Polymaps</code>: US Unemployment 2009 Example'>
+        data-slide=39 title='<code>sigma.js</code>: A library for interactive networks'>
          39
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=40 title='Leveraging JS libraries via <code>rCharts</code>: <code>Highcharts.js</code>'>
+        data-slide=40 title='<code>Polymaps</code>: US Unemployment 2009 Example'>
          40
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=41 title='Leveraging JS libraries via <code>rCharts</code>: <code>NVD3.js</code>'>
+        data-slide=41 title='Leveraging JS libraries via <code>rCharts</code>: <code>Highcharts.js</code>'>
          41
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=42 title='Other Approaches:'>
+        data-slide=42 title='Leveraging JS libraries via <code>rCharts</code>: <code>NVD3.js</code>'>
          42
       </a>
     </li>
@@ -1410,38 +1440,44 @@ and influence diagnostics for structucal equation models.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=44 title='...And finally back to Wickham.'>
+        data-slide=44 title='Other Approaches:'>
          44
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=45 title='The Grand Tour...'>
+        data-slide=45 title='...And finally back to Wickham.'>
          45
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=46 title='Future Research'>
+        data-slide=46 title='The Grand Tour...'>
          46
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=47 title='Contact'>
+        data-slide=47 title='Future Research'>
          47
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=48 title='Packages used and referenced in this presentation:'>
+        data-slide=48 title='Contact'>
          48
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=49 title='Selected References'>
+        data-slide=49 title='Packages used and referenced in this presentation:'>
          49
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=50 title='Selected References'>
+         50
       </a>
     </li>
   </ul>

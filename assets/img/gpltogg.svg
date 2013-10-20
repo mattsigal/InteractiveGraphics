@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="152.417px" height="155.25px" viewBox="0 0 152.417 155.25" enable-background="new 0 0 152.417 155.25"
+	 xml:space="preserve">
+<line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="34.118" y1="29.457" x2="83.874" y2="29.457"/>
+<polyline points="89.634,29.457 83.874,27.297 83.874,31.617 89.634,29.457 "/>
+<polygon fill="none" stroke="#000000" stroke-miterlimit="10" points="89.634,29.457 83.874,27.297 83.874,31.617 "/>
+<line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="52.84" y1="51.065" x2="83.874" y2="51.065"/>
+<polyline points="89.634,51.065 83.874,48.905 83.874,53.226 89.634,51.065 "/>
+<polygon fill="none" stroke="#000000" stroke-miterlimit="10" points="89.634,51.065 83.874,48.905 83.874,53.226 "/>
+<line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="40.599" y1="114.146" x2="83.874" y2="114.146"/>
+<polyline points="89.634,114.146 83.874,111.986 83.874,116.307 89.634,114.146 "/>
+<polygon fill="none" stroke="#000000" stroke-miterlimit="10" points="89.634,114.146 83.874,111.986 83.874,116.307 "/>
+<line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="39.879" y1="127.328" x2="83.975" y2="119.844"/>
+<polyline points="89.653,118.88 83.613,117.714 84.336,121.975 89.653,118.88 "/>
+<polygon fill="none" stroke="#000000" stroke-miterlimit="10" points="89.653,118.88 83.613,117.714 84.336,121.975 "/>
+<line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="44.199" y1="136.602" x2="85.314" y2="136.602"/>
+<polyline points="91.074,136.602 85.314,134.441 85.314,138.762 91.074,136.602 "/>
+<polygon fill="none" stroke="#000000" stroke-miterlimit="10" points="91.074,136.602 85.314,134.441 85.314,138.762 "/>
+<line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="44.199" y1="140.046" x2="85.419" y2="147.214"/>
+<polyline points="91.095,148.201 85.789,145.086 85.049,149.343 91.095,148.201 "/>
+<polygon fill="none" stroke="#000000" stroke-miterlimit="10" points="91.095,148.201 85.789,145.086 85.049,149.343 "/>
+<line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="2.75" y1="18.5" x2="143.75" y2="18.5"/>
+<text transform="matrix(0.932 0 0 1 93.5 116.8457)" font-family="'ArialMT'" font-size="9">Scale / Theme</text>
+<text transform="matrix(1 0 0 1 93.5 31.75)" font-family="'ArialMT'" font-size="9">Defaults</text>
+<text transform="matrix(1 0 0 1 93.5 53.5859)" font-family="'ArialMT'" font-size="9">Layer</text>
+<text transform="matrix(1 0 0 1 99.5 63.25)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="9">Data</tspan><tspan x="0" y="10.8" font-family="'ArialMT'" font-size="9">Mapping</tspan><tspan x="0" y="21.6" font-family="'ArialMT'" font-size="9">Geom</tspan><tspan x="0" y="32.4" font-family="'ArialMT'" font-size="9">Stat</tspan><tspan x="0" y="43.2" font-family="'ArialMT'" font-size="9">Position</tspan></text>
+<text transform="matrix(1 0 0 1 93.5 139.2852)" font-family="'ArialMT'" font-size="9">Coord</text>
+<text transform="matrix(1 0 0 1 93.5 150.3926)" font-family="'ArialMT'" font-size="9">Facet</text>
+<text transform="matrix(1 0 0 1 7.0835 31.75)" font-family="'ArialMT'" font-size="9">DATA</text>
+<text transform="matrix(1 0 0 1 7.0835 43)" font-family="'ArialMT'" font-size="9">TRANS</text>
+<text transform="matrix(1 0 0 1 7.0835 53.2261)" font-family="'ArialMT'" font-size="9">ELEMENT</text>
+<text transform="matrix(1 0 0 1 7.0835 116.8457)" font-family="'ArialMT'" font-size="9">SCALE</text>
+<text transform="matrix(1 0 0 1 7.0835 130)" font-family="'ArialMT'" font-size="9">GUIDE</text>
+<text transform="matrix(1 0 0 1 7.0835 141.0459)" font-family="'ArialMT'" font-size="9">COORD</text>
+<text transform="matrix(1 0 0 1 7.083 12.5898)" font-family="'ArialMT'" font-size="9">GPL</text>
+<text transform="matrix(1 0 0 1 93.5 12.5898)" font-family="'ArialMT'" font-size="9">ggplot2</text>
+</svg>

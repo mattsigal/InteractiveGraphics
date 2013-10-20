@@ -42,7 +42,7 @@ an almost unlimited world of <qe>graphical forms</qe> (statements).</q>
   * Software will lack deep __structure__, and so be inefficient
 * Wilkinson's monograph aimed to replace chart typographies with an overarching language
 * However, the *Grammar of Graphics* was primarily a theoretical treatise
-* It was later implemented by Wilkinson in both the proprietary <monos>Graphics Production Language</monos> of <monos>SPSS</monos> and <monos>nViZn</monos>, the backbone of the <monos>SPSS Visualization Designer</monos> application.
+* It was later implemented by Wilkinson in both the proprietary <monos>Graphics Production Language</monos> of <monos>SPSS</monos> and <monos>nViZn</monos>, the backbone of the <monos>SPSS Visualization Designer</monos> application
 
 ---
 
@@ -54,17 +54,17 @@ The grammar is broken up into three components:
 2. **Assembly:** The coordination of the specified attributes.
 3. **Display:** The actual rendering of the graphic onto a display system
 
-Assembly and Display are typically products of the hardware and software we use, and Wilkinson's
-primary emphasis is on Specification.
+**Assembly** and **Display** are typically products of the software and hardware we use, and Wilkinson's
+primary emphasis is on **Specification**.
 
 ---
 
 ### The heart of the Grammar of Graphics
 
-1. **Algebra:** Operations that combine variables and specify dimensions of graphs
-2. **Scales:** Representing variables on measured dimensions
+1. **Algebra:** Operations that combine variables and specify graph dimensionality
+2. **Scales:** Represent variables on measured dimensions
 3. **Statistics:** Functions that allow graphs to change appearance and representation schemes
-4. **Geometry:** Creation of geometric graphs from variables
+4. **Geometry:** Creation of geometric objects from variables
 5. **Coordinates:** Coordinate systems (from polar to complex map projections)
 6. **Aesthetics:** Sensory attributes used to represent graphics
 7. **Facets and Guides:** Allows for coordination between graphs and tables, and annotations
@@ -96,13 +96,14 @@ primary emphasis is on Specification.
 <smbr></smbr>
 
 The first step is to extract data into variables.
-* The variable mapping function must return a single value in the range for every index.
+* The variable mapping function returns a single value in the range for every index.
 * Data can be broadly defined: 
   * a relational database
   * indexing a stream of words
   * a picture
-* Can be the product of bootstrapping, or even metadata.
+  * can be the product of bootstrapping, or even metadata.
 * Can apply variable transformations (mathematical, statistical, multivariate)
+* Output of this stage is a `varset`
 
 ---
 
@@ -114,11 +115,13 @@ The first step is to extract data into variables.
 
 We then can apply various algebraic techniques to the varset, which will define the structure (or frame) of our plot. 
 
-* Three primary operators: 
-  * Cross (\*): a two-dimensional scatterplot (e.g., city population for 2000 and 2010)
-  * Nest (/): facets data by group variable (e.g., data for USA and data for Canada)
-  * Blend (+): scatterplot with multiple overlays (e.g., data for 2000 and 2010)
-* Output of this stage is a `varset`
+__Three primary operators__: 
+  * Cross (\*): crosses all values of X with all values of Y, and a result exists for every case.
+    * e.g., a two-dimensional scatterplot depicting city population for 2000 and 2010
+  * Nest (/): nests all values of X in all of values of Z, results only exist for particular combinations.
+    * e.g., facet by group variable; city/country produces separate plots for USA and Canada
+  * Blend (+): Combines all values of X with all values of Y on the same dimension 
+    * e.g., plot the combined population for cities in 2000 and 2010
 
 ---
 
@@ -146,13 +149,13 @@ These are functions that are used to map varsets to dimensions (size, shape, and
 <smbr></smbr>
 
 Statistical operations can be employed to reduce the number of rows in the varset.
-* These are methods that alter the position of geometric graps.
+* These are methods that can alter the positions of the geometric plot symbols.
 * Five primary methods:
-  * Bin (rect/tri/hex/quantile/boundary/voronoi/dot/stem)
-  * Summary (count/proportion/sum/mean/median/mode/sd/se/range/leaf)
-  * Region (spread/confi)
-  * Smooth (linear/quadratic/cubic/log/spline/density)
-  * Link (join/sequence/mst/hull/tsp/complete/neighbor)
+  * __Bin__ (rect/tri/hex/quantile/boundary/voronoi/dot/stem)
+  * __Summary__ (count/proportion/sum/mean/median/mode/sd/se/range/leaf)
+  * __Region__ (spread/confi)
+  * __Smooth__ (linear/quadratic/cubic/log/spline/density)
+  * __Link__ (join/sequence/mst/hull/tsp/complete/neighbor)
 
 ---
 
@@ -163,7 +166,7 @@ Statistical operations can be employed to reduce the number of rows in the varse
 <smbr></smbr>
 
 These functions create graph objects that can be represented by magnitudes in a space.
-* These are not actually visible (as they don't have aesthetic attributes)!
+* These are not actually visible (as they don't yet have aesthetic attributes)!
   * Functions: point/line/area/interval/path/schema
   * Partitions: polygon/contour
   * Networks: edges
@@ -178,7 +181,7 @@ These functions create graph objects that can be represented by magnitudes in a 
 <smbr></smbr>
 
 Our next step is to choose and apply a coordinates system.
-* These are sets that locate points in space.
+* These are sets that locate points in space, and are amenable to transformation.
 * Planar transformations:
   * Isometry (reflect, rotate, translate) and Similarity (dilate)
   * Affine (shear, stretch), Projective (project), and Conformal
@@ -214,33 +217,34 @@ Resolution | &nbsp;&nbsp; * Orientation | | |
 
 ### Specification: The Building Blocks of Graphical Displays 
 
-Any statistical graphic can be expressed in terms of six statements:
+In GPL, any statistical graphic can be expressed in terms of six statements:
 
 1. **DATA:** These expressions involve the creation of variables from datasets
 2. **TRANS:** Apply variable transformations (for instance, rank)
-3. **SCALE:** Apple scale transformations (for instance, log)
-4. **ELEMENT:** Define graphs (e.g., points) and their aesthetic attributes (e.g., color)
-5. **COORD:** Define the coordinate system (e.g., polar)
-6. **GUIDE:** Define guides to aid interpretation (e.g. axes, legends, et cetera)
+3. **ELEMENT:** Define graphs (e.g., points) and their aesthetic attributes (e.g., color)
+4. **SCALE:** Apple scale transformations (for instance, log)
+5. **GUIDE:** Define guides to aid interpretation (e.g. axes, legends, et cetera)
+6. **COORD:** Define the coordinate system (e.g., Cartesian, polar)
 
 ---
 
 ### A conceptual example: A grouped scatterplot
 
 <blockcode style="border:2px solid black;">
-DATA: sepallength = "SepalLength" <br />
-DATA: sepalwidth = "SepalWidth" <br />
-TRANS: sepallength = sepallength <br />
-TRANS: sepalwidth = sepalwidth <br />
+DATA: x = "SepalLength" <br />
+DATA: y = "SepalWidth" <br />
+DATA: z = "species" <br />
+TRANS: x = x <br />
+TRANS: y = y <br />
+ELEMENT: point(position(x*y), color(z)) <br />
+COORD: rect(dim(1,2)) <br />
 SCALE: linear(dim(1)) <br />
 SCALE: linear(dim(2)) <br />
-ELEMENT: point(position(sepallength*sepalwidth), color(species)) <br />
-COORD: rect(dim(1,2)) <br />
 GUIDE: axis(dim(1), label("Sepal Length")) <br />
 GUIDE: axis(dim(2), label("Sepal Width")) <br />
 </blockcode>
 
-However, as most of these actions would be the default of a well-organized graphical system, only the Element statements are truly necessary.
+However, as most of these actions would be the default of a well-organized graphical system, only the ELEMENT statement is truly necessary.
 
 ---
 
@@ -270,16 +274,32 @@ General Principals for `ggplot2`:
 
 ## Implementation
 
-Components of a `ggplot2` graph:
-* `Data`: What we want to see!
-* `Geoms`: Geometric objects that are drawn to represent the data (determine the type of plot )
-* `Stats`: Statistical transformations of the data (e.g., binning or averaging)
-* `Scales`: Controls mapping between data and aesthetics (variable or constant) 
-* `Coord`: The coordinate system (provides axes and gridlines)
-* `Facets`: Allows us to break up the data into subsets
+Components of a `ggplot2` object:
+* One or more `Layers` consisting of:
+  * `Data`: What we want to see!
+  * `Mapping`: Defines the aesthetics of the graphic
+  * `Stat`: Statistical transformations of the data (e.g., binning or averaging)
+  * `Geom`: Geometric objects that are drawn to represent the data (simple or complex)
+  * `Position`: Position adjustments for each geom (e.g., jitter, dodge, stack)
+* `Scale`: Controls mapping between data and aesthetics (variable or constant; colour/position) 
 * `Themes`: Relatively new `ggplot2` feature that allows for visual adjustments of a plot object 
+* `Coord`: The coordinate system (provides axes and gridlines)
+* `Facet`: Allows us to break up the data into subsets
 
 ---
+
+## Mapping between `GPL` and `ggplot2`
+
+<br />
+<div style='text-align: center;'>
+    <img src='assets/img/gpltogg.png' style="height:380px;" />
+</div>
+
+<br />
+<span style="display: block; text-align: right; font-size: 90%;">(Based upon Wickham, 2010)</span>
+
+---
+
 
 ## From Wilkinson to Wickham:
 
@@ -289,10 +309,11 @@ Building the grouped scatterplot:
 ```r
 library(ggplot2)
 dat <- iris
-plot <- ggplot(data = dat, 
-               aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
-               geom_point() +
-               theme_bw()
+p1 <- ggplot(data = dat, 
+             aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
+             geom_point() +
+             theme_bw()
+p1
 ```
 
 
@@ -594,21 +615,21 @@ install_github(c("httpuv", "shiny", "ggvis"), "rstudio")
 * In particular, plan to code specific applications to aid in outlier detection
 and influence diagnostics for structucal equation models.
 
----
+--- 
 
 ## Contact
 
-* Matthew J. Sigal, MA
-    * [matthewsigal@gmail.com](mailto:matthewsigal@gmail.com)
-    * [msigal@yorku.ca](mailto:msigal@yorku.ca)
-    * Department of Psychology
-    * 262 Behavioural Science Building
-    * York University, 4700 Keele St.
-    * Toronto, ON, Canada M3J 1P3
-    * (416) 736-2100 x66163
-* My websites: 
-    * [http://www.matthewsigal.com](http://www.matthewsigal.com)
-    * [http://www.dfconsulting.org](http://www.dfconsulting.org)
+__Matthew J. Sigal, MA__  
+Department of Psychology  
+262 Behavioural Science Building  
+York University, 4700 Keele St.  
+Toronto, ON, Canada M3J 1P3  
+(416) 736-2100 x66163  
+
+[matthewsigal@gmail.com](mailto:matthewsigal@gmail.com) / [msigal@yorku.ca](mailto:msigal@yorku.ca)  
+<br />
+[http://www.matthewsigal.com](http://www.matthewsigal.com)  
+[http://www.dfconsulting.org](http://www.dfconsulting.org)  
 
 ---
 
@@ -639,4 +660,6 @@ and influence diagnostics for structucal equation models.
 * Theus, M. and Urbanek, S. (2009). _Interactive graphics for data analysis_. Taylor & Francis.
 * Wickham, H. (2009). _ggplot2: Elegant graphics for data analysis_. Springer, 2nd edition.
 * Wilkinson, L. (2005). _The grammar of graphics_. Springer, 2nd edition. 
-* Yau, N. (2011). _Visualize this_. Wiley.
+* Yau, N. (2011). _Visualize this_. Wiley.  
+<br />
+<span style="display: block; text-align: center; font-size: 110%; font-weight: bold">Slides available at: [http://mattsigal.github.io/InteractiveGraphics/](http://mattsigal.github.io/InteractiveGraphics/)</span>
