@@ -590,7 +590,8 @@ __R Packages__
 * Refines the grammar of graphics (and one day might replace `ggplot2`)
 * In `ggplot2`, geom is kind of abstract (e.g., `geom_histogram()` combines `geom_bar()` and `stat_bin()`). In `ggvis`, pure geoms are called "marks", and combined geoms and stats are referred to as "branches".
 * No `qplot()` (or overloaded +)!
-* Rendered plots can be drawn on the canvas or as SVG 
+* Rendered plots can be drawn on the canvas or as SVG
+* Interactivity! e.g. `mark_symbol(props(size = input_slider(100, 1000))`
 
 ```
 # Installation:
@@ -641,7 +642,7 @@ Toronto, ON, Canada M3J 1P3
 * Ramnath Vaidyanathan's `rCharts`
   * `require(devtools); install_github('rCharts', 'ramnathv')`
 
-* Slides made with Ramnath Vaidyanathan's `slidify` package
+* Slides made with RStudio via Ramnath Vaidyanathan's `slidify`
   * `require(devtools); install_github('slidify', 'ramnathv');` 
   * `require(devtools); install_github('slidifyLibraries', 'ramnathv')`
 
