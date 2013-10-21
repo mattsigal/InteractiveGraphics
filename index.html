@@ -113,12 +113,13 @@ an almost unlimited world of <qe>graphical forms</qe> (statements).</q></p>
     <p>The grammar is broken up into three components:</p>
 
 <ol>
-<li><strong>Specification:</strong> Translating what we expect to happen into a formal language</li>
-<li><strong>Assembly:</strong> The coordination of the specified attributes.</li>
-<li><strong>Display:</strong> The actual rendering of the graphic onto a display system</li>
+<li><strong>Specification:</strong> Translating what we expect to happen into a formal language<br></li>
+<li><strong>Assembly:</strong> The coordination of the specified attributes.<br></li>
+<li><strong>Display:</strong> The actual rendering of the graphic onto a display system<br></li>
 </ol>
 
-<p><strong>Assembly</strong> and <strong>Display</strong> are typically products of the software and hardware we use, and Wilkinson&#39;s
+<p><br / >
+<strong>Assembly</strong> and <strong>Display</strong> are typically products of the software and hardware we use, so Wilkinson&#39;s
 primary emphasis is on <strong>Specification</strong>.</p>
 
   </article>
@@ -1102,6 +1103,32 @@ and influence diagnostics for structucal equation models.</li>
 
 <slide class="" id="slide-48" style="background:;">
   <hgroup>
+    <h2>Conclusion</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Many JavaScript libraries are available to create interactive graphics, however they do not follow the tenets of the grammar of graphics, and are often a challenge to adapt to new datasets.
+
+<ul>
+<li><code>rCharts</code> leverages this somewhat by allow us to utilize JS libraries from within <code>R</code>.</li>
+</ul></li>
+<li><code>ggvis</code> and <code>ggplot2</code> are both attempts at implementing Wilkinson&#39;s Grammar of Graphics in <code>R</code>.</li>
+<li>The later package features a core restructuring that actually brings it closer to the ideals of the underlying grammar by removing and elaborating upon some of the ambiguties of <code>ggplot2</code>.</li>
+<li>It also demonstrates how interaction can be embedded within that grammar.
+
+<ul>
+<li>This can basically be thought of as a loop, where parameters are able to be changed on the fly, which produces an instantaneous rerendering of the plot.</li>
+<li>Just as entire plots can be thought of as embedded geoms (see <code>ggsubplot</code>), we can think of an interactive plot as a Grammar of Graphics pipeline that is continuously rendering.</li>
+</ul></li>
+<li>There are many potential applications for these new technologies ready to be adapted for analysis and implementation.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-49" style="background:;">
+  <hgroup>
     <h2>Contact</h2>
   </hgroup>
   <article data-timings="">
@@ -1121,7 +1148,7 @@ Toronto, ON, Canada M3J 1P3<br>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-49" style="background:;">
+<slide class="" id="slide-50" style="background:;">
   <hgroup>
     <h2>Packages used and referenced in this presentation:</h2>
   </hgroup>
@@ -1151,7 +1178,7 @@ Toronto, ON, Canada M3J 1P3<br>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-50" style="background:;">
+<slide class="" id="slide-51" style="background:;">
   <hgroup>
     <h2>Selected References</h2>
   </hgroup>
@@ -1464,20 +1491,26 @@ Toronto, ON, Canada M3J 1P3<br>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=48 title='Contact'>
+        data-slide=48 title='Conclusion'>
          48
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=49 title='Packages used and referenced in this presentation:'>
+        data-slide=49 title='Contact'>
          49
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=50 title='Selected References'>
+        data-slide=50 title='Packages used and referenced in this presentation:'>
          50
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=51 title='Selected References'>
+         51
       </a>
     </li>
   </ul>

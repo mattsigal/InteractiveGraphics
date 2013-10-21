@@ -13,7 +13,7 @@ ext_widgets : {rCharts: [libraries/nvd3, libraries/highcharts]}
 ---
 
 ```{r echo = F, message = F, cache = F}
-opts_chunk$set(results = 'asis', comment = NA, message = F, tidy = F)
+opts_chunk$set(results = 'asis', comment = NA, message = F, tidy = F, cache = F)
 ```
 
 ## Seminar Overview
@@ -50,11 +50,12 @@ an almost unlimited world of <qe>graphical forms</qe> (statements).</q>
 
 The grammar is broken up into three components:
 
-1. **Specification:** Translating what we expect to happen into a formal language
-2. **Assembly:** The coordination of the specified attributes.
-3. **Display:** The actual rendering of the graphic onto a display system
+1. **Specification:** Translating what we expect to happen into a formal language  
+2. **Assembly:** The coordination of the specified attributes.  
+3. **Display:** The actual rendering of the graphic onto a display system  
 
-**Assembly** and **Display** are typically products of the software and hardware we use, and Wilkinson's
+<br / >
+**Assembly** and **Display** are typically products of the software and hardware we use, so Wilkinson's
 primary emphasis is on **Specification**.
 
 ---
@@ -629,6 +630,19 @@ install_github(c("httpuv", "shiny", "ggvis"), "rstudio")
 and influence diagnostics for structucal equation models.
 
 --- 
+
+## Conclusion
+
+* Many JavaScript libraries are available to create interactive graphics, however they do not follow the tenets of the grammar of graphics, and are often a challenge to adapt to new datasets.
+  * `rCharts` leverages this somewhat by allow us to utilize JS libraries from within `R`.
+* `ggvis` and `ggplot2` are both attempts at implementing Wilkinson's Grammar of Graphics in `R`.
+* The later package features a core restructuring that actually brings it closer to the ideals of the underlying grammar by removing and elaborating upon some of the ambiguties of `ggplot2`.
+* It also demonstrates how interaction can be embedded within that grammar.
+  * This can basically be thought of as a loop, where parameters are able to be changed on the fly, which produces an instantaneous rerendering of the plot.
+  * Just as entire plots can be thought of as embedded geoms (see `ggsubplot`), we can think of an interactive plot as a Grammar of Graphics pipeline that is continuously rendering.
+* There are many potential applications for these new technologies ready to be adapted for analysis and implementation.
+
+---
 
 ## Contact
 

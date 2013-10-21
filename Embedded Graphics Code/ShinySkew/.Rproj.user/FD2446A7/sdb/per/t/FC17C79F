@@ -1,0 +1,16 @@
+{
+    "contents" : "library(shiny)\n\nshinyUI(pageWithSidebar(\n  \n  # Application title\n  headerPanel(\"Increasing Skewness and Kurtosis on a Normal Distribution\"),\n  \n  sidebarPanel(\n    sliderInput(\"epsilon\", label = \"Skewness\", min = 0, max = 5, \n                value = 0, step = .25),\n    sliderInput(\"delta\", label = \"Kurtosis\", min = 0, max = 5,\n                value = 1, step = .25)\n  ),\n  \n  mainPanel(\n    plotOutput(\"skewPlot\") \n    # verbatimTextOutput(\"summary\")\n  )\n))",
+    "created" : 1381947668316.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2123449926",
+    "id" : "FC17C79F",
+    "lastKnownWriteTime" : 1381953843,
+    "path" : "~/Desktop/ShinySkew/ui.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

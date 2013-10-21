@@ -1,0 +1,16 @@
+{
+    "contents" : "library(shiny)\n# library(pastecs)\n\nfs = function(x, epsilon, delta) {\n  dnorm(sinh(delta*asinh(x)-epsilon)) * delta * cosh(delta*asinh(x)-epsilon) /sqrt(1+x^2)\n}\n\nvec = seq(-10, 10, 0.01)\n\nshinyServer(function(input, output) {\n  \n  data <- reactive({  \n    fs(vec, input$epsilon, input$delta)\n  })\n  \n  output$skewPlot <- renderPlot({\n    plot(vec, fs(vec, input$epsilon, input$delta), type=\"l\", xlab = \"X\", ylab = \"f(X)\")\n  })\n  \n#   output$summary <- renderPrint({\n#     round(stat.desc(sample(data(), 200), basic = TRUE, norm = TRUE)[c(1,15:18)], 0)\n#   })\n  \n})\n\n# library(shiny)\n# library(pastecs)\n# \n# fs = function(x, epsilon, delta) {\n#   dnorm(sinh(delta*asinh(x)-epsilon)) * delta * cosh(delta*asinh(x)-epsilon) /sqrt(1+x^2)\n# }\n# \n# vec = seq(-3, 25, 0.1)\n# \n# shinyServer(function(input, output) {\n# \n#   output$skewPlot <- renderPlot({\n#     plot(vec, fs(vec, input$epsilon, input$delta), type=\"l\", xlab = \"X\", ylab = \"f(X)\")\n#   })\n#   \n#   \n#   \n# })",
+    "created" : 1381947708742.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2354860388",
+    "id" : "A0F823BD",
+    "lastKnownWriteTime" : 1381953767,
+    "path" : "~/Desktop/ShinySkew/server.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
